@@ -1,0 +1,82 @@
+
+.div-section{
+	background:#ffffff;
+	border:1px solid #e2e4e8;
+	border-width:0 0 1px;
+}
+.list-address-edit{}
+.list-address-edit li{
+	padding:10px 40px;
+}
+.list-address-edit li div.address-select{
+	position:relative;
+	background: -webkit-gradient(linear, 0 0, 100% 100%, from(transparent), to(#ccc), color-stop(50%, transparent), color-stop(50%, #ccc) ) no-repeat right bottom;
+	-webkit-background-size: 6px 6px;
+}
+.list-address-edit li div:after{
+	content:"";
+	display:block;
+	width:100%;
+	border:1px solid #e2e4e8;
+	border-width:0 1px 1px;
+	height:6px;
+	-webkit-box-sizing: border-box;
+}
+.list-address-edit input, .list-address-edit select{
+	font-size:14px;
+	color:#a1a1a1;
+	width:100%;
+	padding:5px 13px;
+	border:0;
+	-webkit-appearance:none;
+	border:0;
+	display:block;
+	background:none;
+}
+.list-address-edit select{
+	padding:5px 9px;
+	font-size:15px;
+}
+/****/
+.div-set-default{
+	border:1px solid #e2e4e8;
+	border-width:1px 0 0;
+	padding:10px 32px 10px 45px;
+	margin-top:10px;
+}
+.div-set-default label{
+	display:block;
+	line-height:24px;
+}
+.div-set-default label input{
+	float:right;
+	border: 0;
+	-webkit-appearance: button;
+	display: inline-block;
+	width: 23px;
+	height: 24px;
+	margin: 0 3px;
+	background: url(../../../img/common/icons-1.png) no-repeat -2px -379px;
+	-webkit-background-size: 29px auto;
+}
+.div-set-default label input:checked{
+	background-position: -2px -408px;
+}
+
+/*********************/
+.div-section-btn{
+	border-bottom:0;
+	padding:9px 35px 21px;
+	text-align: center;
+	margin:0 auto;
+}
+.div-section-btn li{
+	padding:10px 0;
+}
+.div-section-btn .btn{
+	height: 40px;
+	line-height: 40px;
+	font-size: 15px;
+	width: 100%;
+	display: inline-block;
+}

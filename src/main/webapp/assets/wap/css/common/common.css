@@ -1,0 +1,380 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html,body {
+	background: #eee;
+	height:100%;
+}
+
+.btn {
+	display: block;
+	height: 30px;
+	line-height: 30px;
+	width: 65px;
+	border-radius: 5px;
+	color: #fff;
+	text-align: center;
+	font-size: 14px;
+	border: none;
+	-webkit-appearance: none;
+}
+.btn{
+	-webkit-tap-highlight-color: rgba(0,0,0,0.35);
+}
+.btn.fl{  margin:7px 0px 0 12px ;}
+.btn.fr{ margin:7px 12px 0 0 ;}
+
+.btn.red{background:#ff5366;}
+.btn.black{background:#3e3e3e;}
+.btn.green{background:#06bf04;}
+.btn.orange{background:#ff8b2c;}
+.btn.tp{background:transparent;border: 1px solid #ff5366;color: #ff5366;}
+.btn.white{background: #ffffff;border: 1px solid #d8dade;color: #484a4e;}
+.btn.red-new{border: 1px solid #f32f45;color: #f32f45;}
+.btn.black-new{border: 1px solid #3e3e3e;color: #3e3e3e;}
+.btn.green-new{border: 1px solid #06bf04;color: #06bf04;}
+.btn.orange-new{border: 1px solid #ff8b2c;color: #ff8b2c;}
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+.ofh {
+	overflow: hidden;
+}
+.align-left {
+	text-align: left;
+}
+.align-right {
+	text-align: right;
+}
+.align-center {
+	text-align: center;
+}
+.vertical-top {
+	vertical-align: top;
+}
+.vertical-middle {
+	vertical-align: middle;
+}
+.vertical-bottom {
+	vertical-align: bottom;
+}
+.relative {
+	position: relative;
+}
+.absolute {
+	position: absolute;
+}
+.hidden {
+	display: none;
+}
+.hidden.on {
+	display: block;
+}
+.vhidden {
+	visibility: hidden;
+}
+.vhidden.on {
+	visibility: visible;
+}
+/*.empty:empty {
+	display: none;
+}*/
+.block {
+	display: block;
+}
+.inlineBlock {
+	display: inline-block;
+}
+.ml-10 {
+	margin-left: 10px;
+}
+.mr-10 {
+	margin-right: 10px;
+}
+.mt-10 {
+	margin-top: 10px;
+}
+.mb-10 {
+	margin-bottom: 10px;
+}
+.m-10 {
+	margin: 10px;
+}
+.m-auto {
+	margin: auto;
+}
+.ml-5 {
+	margin-left: 5px;
+}
+.mr-5 {
+	margin-right: 5px;
+}
+.mt-5 {
+	margin-top: 5px;
+}
+.mb-5 {
+	margin-bottom: 5px;
+}
+.m-5 {
+	margin: 5px;
+}
+.m-auto {
+	margin: auto;
+}
+.pl-10 {
+	padding-left: 10px;
+}
+.pr-10 {
+	padding-right: 10px;
+}
+.pt-10 {
+	padding-top: 10px;
+}
+.pb-10 {
+	padding-bottom: 10px;
+}
+.p-10 {
+	padding: 10px;
+}
+.pl-5 {
+	padding-left: 5px;
+}
+.pr-5 {
+	padding-right: 5px;
+}
+.pt-5 {
+	padding-top: 5px;
+}
+.pb-5 {
+	padding-bottom: 5px;
+}
+.p-5 {
+	padding: 5px;
+}
+
+.box {
+	width: 100%;
+	display: -webkit-box;
+	display: -moz-box;
+	-webkit-box-orient: horizontal;
+	-moz-box-orient: horizontal;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+.box > * {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+}
+.tbox {
+	width: 100%;
+	height: 100%;
+}
+.tbox > * {
+	height: 100%;
+	display: table-cell;
+	vertical-align: top;
+}
+.tbox > *:last-child {
+	width: 100%;
+}
+
+.pre{
+	white-space: nowrap;
+}
+
+.center{
+	text-align:center;
+}
+
+.container {
+	margin: auto;
+	height:100%;
+	position: relative;
+	display: block;
+	background-size: 100% 100%;
+	-webkit-box-sizing: border-box;
+	min-width: 320px;
+	max-width: 640px;
+}
+.container .auto-height{
+	min-height:100%;
+}
+
+/* 页脚  begin */
+.copyright-fix .copyright {
+	max-width: 640px;
+	bottom: 0px;
+	width: 100%;
+	position: fixed;
+}
+
+.copyright .widget-wrap { /* height: 55px; */
+	padding-top: 15px;
+	overflow: hidden;
+}
+
+.copyright ul {
+	display: table;
+	height: 53px;
+	background: #ffffff;
+	/* -webkit-box-shadow: 0px -5px 5px rgba(0,0,0,0.1); */
+	text-align: center;
+	border: 1px solid #ebecf1;
+	border-width: 1px 0 0;
+}
+
+.copyright .tbox>* {
+	vertical-align: middle;
+	padding: 0 5px;
+	height: 50px;
+}
+
+.copyright .img-wrap {
+	display: inline-block;
+	max-height: 35px;
+	padding: 0 5px;
+	border: 0;
+	border-radius: 0;
+}
+
+.copyright .tbox>*:nth-last-of-type(2) {
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#d3d3d3),
+		to(#d3d3d3) ) no-repeat right center;
+	-webkit-background-size: 1px 21px;
+}
+
+.copyright .tbox>*:first-of-type:empty {
+	display: none;
+}
+
+.copyright img {
+	max-width: 110px;
+	max-height: 35px;
+}
+
+.copyright a {
+	line-height: 20px;
+	display: block;
+	font-size: 10px;
+	color: #5e616d;
+}
+
+.copyright p:first-of-type a {
+	font-size: 10px;
+	color: #ff5366;
+}
+/* 页脚  end */
+
+/* Loading遮罩层  begin */
+.loading-bg {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: #888;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	opacity: 0.3;
+}
+.loading-bg .loading {
+	z-index: 1001;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:-20px 0 0 -20px;
+    width: 40px;
+    height: 40px;
+    text-indent: -10000px;
+    background: url('../../gmu/css/ui-loading.png') 0 0 no-repeat;
+    -webkit-background-size: 40px 40px;
+    -webkit-animation-name: loading-anim;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: step-start;
+}
+
+@-webkit-keyframes loading-anim {
+	from {
+        -webkit-transform: rotate(0deg);
+    }
+    8.32% {
+        -webkit-transform: rotate(0deg);
+    }
+    8.33% {
+        -webkit-transform: rotate(30deg);
+    }
+    16.65% {
+        -webkit-transform: rotate(30deg);
+    }
+    16.66% {
+        -webkit-transform: rotate(60deg);
+    }
+    24.99% {
+        -webkit-transform: rotate(60deg);
+    }
+    25% {
+        -webkit-transform: rotate(90deg);
+    }
+    33.32% {
+        -webkit-transform: rotate(90deg);
+    }
+    33.33% {
+        -webkit-transform: rotate(120deg);
+    }
+    41.65% {
+        -webkit-transform: rotate(120deg);
+    }
+    41.66% {
+        -webkit-transform: rotate(150deg);
+    }
+    49.99% {
+        -webkit-transform: rotate(150deg);
+    }
+    50% {
+        -webkit-transform: rotate(180deg);
+    }
+    58.32% {
+        -webkit-transform: rotate(180deg);
+    }
+    58.33% {
+        -webkit-transform: rotate(210deg);
+    }
+    66.65% {
+        -webkit-transform: rotate(210deg);
+    }
+    66.66% {
+        -webkit-transform: rotate(240deg);
+    }
+    74.99% {
+        -webkit-transform: rotate(240deg);
+    }
+    75% {
+        -webkit-transform: rotate(270deg);
+    }
+    83.32% {
+        -webkit-transform: rotate(270deg);
+    }
+    83.33% {
+        -webkit-transform: rotate(300deg);
+    }
+    91.65% {
+        -webkit-transform: rotate(300deg);
+    }
+    91.66% {
+        -webkit-transform: rotate(330deg);
+    }
+    99.99% {
+        -webkit-transform: rotate(330deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+/* Loading遮罩层  end */

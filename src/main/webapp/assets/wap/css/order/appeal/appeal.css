@@ -1,0 +1,302 @@
+html{
+	background: #f1f1f1;
+}
+a{
+	text-decoration: none;
+	color: inherit;
+}
+/*********申请维权**************/
+.form-wrapper{
+	margin-top: 15px;
+}
+.rights-list{
+	background: #ffffff;
+	padding: 0 10px;
+	border: 1px solid #e5e5e5;
+	border-width: 1px 0;
+	margin-bottom: 15px;
+}
+.rights-list>li{
+	line-height: 35px;
+	padding: 5px;
+	border: 1px solid #e5e5e5;
+	border-width: 0 0 1px 0;
+	display: table;
+	width: 100%;
+}
+.rights-list>li:last-child{
+	border-width: 0;
+}
+.rights-list>li>div{
+	display: table-cell;
+	vertical-align: top;
+}
+.rights-list>li>div:first-child{
+	width: 85px;
+}
+.rights-list>li input{
+	border-width: 0;
+	width: 100%;
+	height: 100%;
+	font-size: 14px;
+}
+.rights-list>li input.unwritable{
+	color: #f44456;
+}
+.rights-list>li select{
+	-webkit-appearance: none;
+	border-width: 0;
+	color: #a1a1a1;
+	width: 100%;
+	height: 100%;
+	background: url(../../../img/order/rights_1.png) no-repeat 100% 0;
+	background-size: 35px auto;
+	font-size: 14px;
+}
+.rights-list>li textarea{
+	border-width: 0;
+	line-height: 20px;
+	width: 100%;
+	margin: 8px 0 0 0;
+	font-size: 14px;
+}
+
+.section-div{
+	width: 100%;
+	height: 40px;
+	padding: 0 15px;
+}
+.section-div>div{
+	width: 100%;
+	height: 100%;
+}
+.section-div>div>span{
+	vertical-align: middle;
+}
+.section-div .caution{
+	color: #ff5366;
+}
+
+.btn-div{
+	width: 100%;
+	height: 45px;
+	padding: 0 30px;
+	margin: 25px 0;
+}
+.btn-div .btn-red{
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	color: #f32f45;
+	border: 1px solid #f32f45;
+	border-radius: 5px;
+	font-size: 15px;
+}
+
+/************维权详情*************/
+.detail-block{
+	background: #ffffff;
+	width: 100%;
+	margin: 15px 0;
+	border: 1px solid #e5e5e5;
+	border-width: 1px 0;
+	padding: 0 10px;
+}
+.detail-block .block-title{
+	line-height: 40px;
+	background: url(../../../img/order/rights_1.png) no-repeat;
+	background-size: 40px auto; 
+}
+.detail-block .block-title label{
+	display: block;
+	margin-left: 45px;
+	font-size: 15px;
+}
+.detail-block .block-title label span{
+	color: #b0b0b0;
+	font-size: 13px;
+}
+.detail-block .block-title label.arrow{
+	background: url(../../../img/order/rights_1.png) no-repeat 100% -440px;
+	background-size: 40px auto;
+}
+.detail-block .block-title label.open{
+	background: url(../../../img/order/rights_1.png) no-repeat 92% -240px;
+	background-size: 40px auto;
+}
+.detail-block .block-title label.close{
+	background: url(../../../img/order/rights_1.png) no-repeat 92% -200px;
+	background-size: 40px auto;
+}
+.detail-block .block-title.no-logo{
+	background: #ffffff;
+}
+.detail-block .block-title.process{
+	background-position: 0 -40px;
+}
+.detail-block .block-title.refund{
+	background-position: 0 -80px;
+}
+.detail-block .block-title.logistics{
+	background-position: 0 -120px;
+}
+.detail-block .block-title.info{
+	background-position: 0 -160px;
+}
+.detail-block .block-title.returnGoods{
+	background-position: 0 -280px;
+}
+.detail-block .block-title.order{
+	background-position: 0 -320px;
+}
+.detail-block .block-title.refuse{
+	background-position: 0 -360px;
+}
+.detail-block .rights-list{
+	border-width: 1px 0 0 0;
+	margin-bottom: 0;
+}
+.detail-block .refuse-reason{
+	background: #ffffff;
+	padding: 10px 20px 10px 45px;
+	border: 1px solid #e5e5e5;
+	border-width: 1px 0 0 0;
+	line-height: 24px;
+	color: #666666;
+}
+/******/
+.process-list{
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#e5e5e5), to(#e5e5e5)) no-repeat 19px 15px #ffffff;
+	-webkit-background-size: 1px 100%;
+	border: 1px solid #e5e5e5;
+	border-width: 1px 0 0 0;
+	line-height: 60px;
+}
+.process-list>li{
+	display: table;
+	width: 100%;
+}
+.process-list>li>div{
+	display: table-cell;
+	vertical-align: top;
+	font-size: 14px;
+}
+.process-list>li>div:first-child{
+	width: 40px;
+}
+.process-list>li>div:last-child{
+	padding-left: 5px;
+}
+.process-list>li span.process-point{
+	display: block;
+	width: 40px;
+	height: 40px;
+	background: url(../../../img/order/rights_1.png) no-repeat center -400px;
+	background-size: 40px auto;
+}
+.process-list>li span.process-point.current{
+	background-position: center -480px;
+}
+.process-list>li span.process-info{
+	display: block;
+	line-height: 24px;
+	padding: 8px 0;
+	color: #666666;
+}
+.process-list>li span.process-info.current{
+	color: #000000;
+}
+.process-list>li #timer{
+	color: #000000;
+}
+/*****/
+.detail-list{
+	background: #ffffff;
+	padding: 0 10px;
+	border: 1px solid #e5e5e5;
+	border-width: 1px 0 0 0;
+	line-height: 45px;
+}
+.detail-list>li{
+	border: 1px solid #e5e5e5;
+	border-width: 0 0 1px 0;
+	display: table;
+	width: 92%;
+	margin-left: 20px;
+	padding-left: 15px;
+}
+.detail-list>li:last-child{
+	border-width: 0;
+}
+.detail-list>li.off{
+	display: none;
+}
+.detail-list>li.no-border{
+	border-width: 0;
+}
+.detail-list>li>div{
+	display: table-cell;
+	vertical-align: top;
+	font-size: 14px;
+}
+.detail-list>li>div:first-child{
+	width: 85px;
+}
+.detail-list>li>div:last-child{
+	color: #666666;
+}
+.detail-list>li>div>span{
+	display: block;
+	line-height: 24px;
+	padding: 12px 0;
+}
+
+/**********************/
+.foot-menu{}
+.foot-menu .widget-wrapper{
+	height: 60px;
+}
+.foot-menu .widget-wrapper .btn-wrapper{
+	position: fixed;
+	background: #f5f5f5;
+	left: 0;
+	bottom: 0;
+	height: 60px;
+	width: 100%;
+	border: 1px solid #b2b2b2;
+	border-width: 1px 0 0 0;
+}
+.foot-menu .widget-wrapper .btn-wrapper .nav-btn{
+	margin: 0 auto;
+	width: 100px;
+	height: 60px;
+	padding: 7px 0 3px 0;
+	font-size: 0;
+}
+.foot-menu .widget-wrapper .btn-wrapper .nav-btn.has2{
+	width: 200px;
+}
+.foot-menu .widget-wrapper .btn-wrapper .nav-btn li{
+	display: inline-block;
+	border-radius: 5px;
+	width: 90px;
+	line-height: 42px;
+	text-align: center;
+	font-size: 14px;
+	margin: 0 5px;
+}
+.foot-menu .widget-wrapper .btn-wrapper .nav-btn li.cancel{
+	border: 1px solid #666666;
+	color: #666666;
+}
+.foot-menu .widget-wrapper .btn-wrapper .nav-btn li.return{
+	border: 1px solid #f32f45;
+	color: #f32f45;
+}
+.foot-menu .widget-wrapper .btn-wrapper .nav-btn li.redo{
+	border: 1px solid #ff8522;
+	color: #ff8522;
+}
+.foot-menu .widget-wrapper .btn-wrapper .nav-btn li:not(.on){
+	display: none;
+}

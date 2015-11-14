@@ -1,0 +1,85 @@
+.myorder{ background:#f1f1f1; }
+.myorder .orderlist{
+	float:left; width:100%;
+	padding-top:5px;
+	margin-bottom:12px;
+	background:#fff;
+	border: 1px solid #ced3d7;
+	border-width: 1px 0 0;
+	-webkit-border-image: url(../../../img/common/border.gif) 2 stretch;
+}
+.myorder .orderlist.notopborder{ border-top:none;}
+.myorder .orderlist>span{
+	display:block;
+	width:100%;
+	line-height:28px;
+	padding:0 12px;
+	border-bottom:1px solid #e8eaeb;
+	color:#878a8d;
+	border: 1px solid #ced3d7;
+	border-width:0 0 1px;
+	-webkit-border-image: url(../../../img/common/border.gif) 2 stretch;
+}
+.myorder .orderlist>span >a{ display:block; float:right; color:#ff5366; font-size:14px;}
+.myorder .orderlist ul{ padding:0 14px;}
+.myorder .orderlist ul li{ border-top:1px solid #e8eaeb; width:100%; height:112px; padding:15px 5px; position:relative;}
+.myorder .orderlist ul li:first-child{ border-top:none;}
+.myorder .orderlist ul li a>span{ display:block; float:left; height:100%; width:83px; overflow:hidden;}
+.myorder .orderlist ul li a>span >img{  height:100%;}
+.myorder .orderlist ul li a>label{ position:absolute; left:88px; right:0; top:0px; bottom:0; padding:15px 20px 12px 18px ; font-size:12px; line-height:22px; }
+.myorder .orderlist ul li a>label>.table{ width:100%; height:100%; display:table;}
+.myorder .orderlist ul li a>label>.table>div{ display:table-row; }
+.myorder .orderlist ul li a>label>.table>div >span{display:table-cell;color:#4a4a4a; font-size:11px; line-height:15px; }
+
+.myorder .orderlist ul li a>label>.table>div.line1>span{vertical-align:middle; }
+.myorder .orderlist ul li a>label>.table>div.line2>span{ vertical-align:middle; color:#ff5366; font-size:12px;font-weight:bold;}
+.myorder .orderlist ul li a>label>.table>div.line3>span{color:#c7c7c7; vertical-align:middle; }
+
+.myorder .orderlist>label{
+	display:block;
+	height:45px;
+	width:100%;
+	background:#eaedf4;
+	float:left;
+	border: 1px solid #ced3d7;
+	border-width:0 0 1px;
+	-webkit-border-image: url(../../../img/common/border.gif) 2 stretch;
+}
+
+.btn.gray{
+	background:#a3a9b2;
+}
+.order-state{
+	line-height:45px;
+	padding-left:10px;
+	display: inline-block;
+	font-size:14px;
+	color: #878a8d;
+}
+
+/****/
+html{
+	background: #f1f1f1;
+}
+.myorder .orderlist:first-of-type{border-top:0;}
+.list-order {
+	position: relative;
+	padding-bottom:38px;
+	overflow: hidden;
+}
+.list-order li.loading-element{
+	width:100%;
+	margin:5px 0;
+	position:absolute;
+	bottom:0;
+	left:0;
+	height:28px;
+	text-align:center;
+	margin-top:-28px;
+}
+.list-order .list-empty{
+	height: 300px;
+  	background: url(../../../img/order/no_order.png) no-repeat center center;
+  	-webkit-background-size: 250px auto;
+}
+

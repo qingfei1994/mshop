@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
+
+    <mvc:interceptors>
+		<!-- 第一个拦截器不生效是怎么回事？？？-_-||| -->
+		<mvc:interceptor>
+			<mvc:mapping path="/a/b/c/d" />
+			<bean class="com.misuosi.mshop.db.page.PaginationIntercepter"/>
+		</mvc:interceptor>
+
+		<!-- 分页拦截器 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/admin/goods/list/**" />
+			<bean class="com.misuosi.mshop.db.page.PaginationIntercepter">
+				<property name="needPaging" value="true" />
+				<property name="maxPageSize" value="1000" />
+				<property name="defaultPageSize" value="20" />
+			</bean>
+		</mvc:interceptor>
+		
+		<mvc:interceptor>
+			<mvc:mapping path="/wap/home/index" />
+			<bean class="com.misuosi.mshop.wx.interceptor.WeixinAuthorityIntercepter" />
+		</mvc:interceptor>
+		
+		
+		<mvc:interceptor>
+			<mvc:mapping path="/admin/**/list/**" />
+			<mvc:exclude-mapping path="/admin/goods/list/**"/>
+			<mvc:exclude-mapping path="/admin/permission/list"/>
+			<mvc:exclude-mapping path="/admin/role/edit"/>
+			<bean class="com.misuosi.mshop.db.page.PaginationIntercepter">
+				<property name="needPaging" value="true" />
+				<property name="maxPageSize" value="1000" />
+				<property name="defaultPageSize" value="10" />
+			</bean>
+		</mvc:interceptor>
+		<!-- 排序拦截器 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/admin/**/list/**" />
+			<bean class="com.misuosi.mshop.db.sort.SortIntercepter" />
+		</mvc:interceptor>
+		<!-- 查询拦截器 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/admin/**/list/**" />
+			<bean class="com.misuosi.mshop.db.query.QueryIntercepter" />
+		</mvc:interceptor>
+    </mvc:interceptors>
+
+</beans>

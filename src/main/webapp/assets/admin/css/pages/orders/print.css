@@ -1,0 +1,115 @@
+ *{padding: 0;margin: 0}
+body{font-family:"Microsoft YaHei",å¾®è½¯é›…é»‘,"MicrosoftJhengHei",åŽæ–‡ç»†é»‘,STHeiti,MingLiu;font-size:14px;}
+    	.bill{
+    		width:208mm;
+    		margin:0 auto;
+            position: relative;
+            zoom:1;
+    	}
+    	.line{
+    		width:208mm;
+    		font-size:0;
+    		overflow:hidden;
+    		height:0;
+    		border-top: 1px dashed #000;
+    	}
+    	.page{
+    		page-break-after: always;
+    		width:210mm;
+    		margin:0 auto;
+    	}
+    	.title{
+    		font-size:22px;
+    		margin-top:5mm;
+    		width:100%;
+            text-indent: 1em;
+    	}
+        .titleimg{
+            position: absolute;
+            right:1mm;
+            top:2mm;
+            height:16mm;
+            width:16mm;
+        }
+    	table{
+    		border: 1px solid #ccc;
+    		width: 100%;
+    		border-collapse: collapse; 
+    	}
+    	.b-t{
+    		border-top:none;
+    	}
+    	table tr td{
+    		text-align: center;
+    		padding:0 2mm;
+    		height:10mm;
+    		border: 1px solid #ccc;
+    		color:#333;
+    	}
+    	table tr th{
+    		text-align: center;
+    		padding:0 2mm;
+    		height:10mm;
+    		border: 1px solid #ccc;
+    		font-weight: normal;
+    	}
+    	.b-t tr th{
+    		border-top:none;
+    	}
+    	table tr .left{
+    		text-align: left;
+    	}
+    	table tr .right{
+    		text-align: right;
+    	}
+    	table tr .label{
+    		padding-right: 10px;
+    	}
+    	table tr .th{
+    	}
+        .m-l{
+            margin-left:5mm;
+        }
+        .m-l-md{
+            margin-left:3mm;
+        }
+         .m-l-xs{
+            margin-left:2mm;
+        }
+        .maroon{
+            color:red;
+        }
+    	ul{
+    		margin:4mm 1mm 2mm 1mm;
+    	}
+    	ul:after,.bill:after{
+    		 content:".";        
+		     display:block;        
+		     height:0;        
+		     clear:both;        
+		     visibility:hidden;     
+    	}
+    	li{
+    		list-style-type: none;
+    	}
+    	ul li{
+    		float: left;
+    		position: relative;
+    		zoom:1;
+    	}
+    	ul li span{
+    		color:#333;
+    	}
+    	ul li .depart{
+    		border-bottom: 1px dashed #ccc;
+    		position: absolute;
+    		width: 50mm;
+    		top:0;
+    		left:50px;
+    	}
+        .text-right{
+            text-align: right;
+        }
+    	.m-r{
+    		margin-right: 15px;
+    	}

@@ -1,0 +1,4 @@
+部署项目前：
+1、压缩 assets/plugins和assets/wx下的文件；
+2、合并且压缩assets/admin下的文件；
+3、压缩require_config

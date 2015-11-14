@@ -1,0 +1,1 @@
+(function(e,t){gmu.Suggestion.options.compatdata=!0,gmu.Suggestion.option("compatdata",!0,function(){this.on("ready",function(){var e=this.key,n="SUG-History-DATATRANS",r,i;try{r=t.localStorage[e],r&&!t.localStorage[n]&&(t.localStorage[n]="",i=r.split(","),t.localStorage[e]=i.join(this.separator))}catch(s){console.log(s.message)}})})})(gmu.$,window);

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+	<bean id="activityCommodityDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.ActivityCommodity"/>
+	</bean>
+	<bean id="activityLabelDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.ActivityLabel"/>
+	</bean>
+	<bean id="activityMarketingDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.ActivityMarketing"/>
+	</bean>
+	<bean id="addressesDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.Addresses"/>
+	</bean>
+	<bean id="administratorDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.Administrator"/>
+	</bean>
+	<bean id="administratorRoleDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.AdministratorRole"/>
+	</bean>
+	<bean id="alipayDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.Alipay"/>
+	</bean>
+	<bean id="alipayBankCardDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.AlipayBankCard"/>
+	</bean>
+	<bean id="alipayPaySettingDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.AlipayPaySetting"/>
+	</bean>
+	<bean id="bankDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.Bank"/>
+	</bean>
+	<bean id="bankCardDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.BankCard"/>
+	</bean>
+	<bean id="clientAppealDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.ClientAppeal"/>
+	</bean>
+	<bean id="clientAppealPictureDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.ClientAppealPicture"/>
+	</bean>
+	<bean id="collectGoodsDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.CollectGoods"/>
+	</bean>
+	<bean id="consigneesAddressDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.ConsigneesAddress"/>
+	</bean>
+	<bean id="contactsDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.Contacts"/>
+	</bean>
+	<bean id="distributionRegionDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.DistributionRegion"/>
+	</bean>
+	<bean id="expressCompanyDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.ExpressCompany"/>
+	</bean>
+	<bean id="goodsDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.Goods"/>
+	</bean>
+	<bean id="goodsClassificationDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.GoodsClassification"/>
+	</bean>
+	<bean id="goodsClassificationGoodsDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.GoodsClassificationGoods"/>
+	</bean>
+	<bean id="goodsCommentDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.GoodsComment"/>
+	</bean>
+	<bean id="goodsGoodsSpecificationValueDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.GoodsGoodsSpecificationValue"/>
+	</bean>
+	<bean id="goodsLabelDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.GoodsLabel"/>
+	</bean>
+	<bean id="goodsLabelGoodsDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.GoodsLabelGoods"/>
+	</bean>
+	<bean id="goodsOrderDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.GoodsOrder"/>
+	</bean>
+	<bean id="goodsPictureDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.GoodsPicture"/>
+	</bean>
+	<bean id="goodsPriceStockDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.GoodsPriceStock"/>
+	</bean>
+	<bean id="goodsSpecificationNameDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.GoodsSpecificationName"/>
+	</bean>
+	<bean id="goodsSpecificationValueDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.GoodsSpecificationValue"/>
+	</bean>
+	<bean id="goodsUnificationExpensesDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.GoodsUnificationExpenses"/>
+	</bean>
+	<bean id="guideFollowDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.GuideFollow"/>
+	</bean>
+	<bean id="helpDocumentDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.HelpDocument"/>
+	</bean>
+	<bean id="indexBannerDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.IndexBanner"/>
+	</bean>
+	<bean id="indexGoodsDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.IndexGoods"/>
+	</bean>
+	<bean id="indexGroupDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.IndexGroup"/>
+	</bean>
+	<bean id="memberInformationDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.MemberInformation"/>
+	</bean>
+	<bean id="orderInformationDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.OrderInformation"/>
+	</bean>
+	<bean id="orderSettingDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.OrderSetting"/>
+	</bean>
+	<bean id="payInformationDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.PayInformation"/>
+	</bean>
+	<bean id="permissionDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.Permission"/>
+	</bean>
+	<bean id="priceLabelDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.PriceLabel"/>
+	</bean>
+	<bean id="printItemsDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.PrintItems"/>
+	</bean>
+	<bean id="refundInformationDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.RefundInformation"/>
+	</bean>
+	<bean id="regionalismDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.Regionalism"/>
+	</bean>
+	<bean id="requestDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.Request"/>
+	</bean>
+	<bean id="roleDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.Role"/>
+	</bean>
+	<bean id="rolePermissionDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.RolePermission"/>
+	</bean>
+	<bean id="shipmentsInformationDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.ShipmentsInformation"/>
+	</bean>
+	<bean id="shopInformationDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.ShopInformation"/>
+	</bean>
+	<bean id="shoppingCartDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.ShoppingCart"/>
+	</bean>
+	<bean id="specialRuleDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.SpecialRule"/>
+	</bean>
+	<bean id="systemLogDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.SystemLog"/>
+	</bean>
+	<bean id="transportationExpensesDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.TransportationExpenses"/>
+	</bean>
+	<bean id="transportationExpensesTemplateDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.TransportationExpensesTemplate"/>
+	</bean>
+	<bean id="unionpayPaySettingDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.UnionpayPaySetting"/>
+	</bean>
+	<bean id="waybillPrintItemsDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.WaybillPrintItems"/>
+	</bean>
+	<bean id="waybillTemplateDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.WaybillTemplate"/>
+	</bean>
+	<bean id="wechatInformationDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.WechatInformation"/>
+	</bean>
+	<bean id="weixinPaySettingDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.WeixinPaySetting"/>
+	</bean>
+	<bean id="weixinPublicSettingDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.WeixinPublicSetting"/>
+	</bean>
+	<bean id="weixinReplyTemplateDao" class="com.misuosi.mshop.db.query.QueryDao">
+		<constructor-arg value="com.misuosi.mshop.entity.WeixinReplyTemplate"/>
+	</bean>
+
+</beans>

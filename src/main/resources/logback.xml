@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- configuration为根元素，包含三个属性: debug,指是否开启logback内部日志，没有设置此属性或设置其值为空、null或false时，表示不开启，否则，开启； 
+	scan,设置是否定时扫描配置文件 scanPeriod,设置扫描周期，与scan属性配合使用，默认是60000毫秒，如果该属性值没有带单位，则单位为毫秒，可带的单位有milli/millisecond/second/seconde/minute/hour/day，可忽略大小写 -->
+<configuration debug="true" scan="true" scanPeriod="600 seconds">
+	<!-- <consolePlugin /> -->
+	<!-- appender表示日志输出的方式，该元素必须包含name、classs属性; name，表示appender的唯一标识 class一般常见有ch.qos.logback.core.FileAppender、ch.qos.logback.core.rolling.RollingFileAppender、ch.qos.logback.core.ConsoleAppender -->
+	<!-- 日志级别为分别：TRACE< DEBUG< INFO< WARN< ERROR -->
+	<!-- 下面appender表示输出到控制台 -->
+	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- 设置级别过滤器 -->
+
+  		<!--<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			level级别的日志才会被处理，其他级别不处理
+			<level>WARN</level>
+			用于配置符合条件的操作
+			<onMatch>ACCEPT</onMatch>
+			用于配置不符合条件的操作
+			<onMismatch>DENY</onMismatch>
+		</filter> 
+		<filter>
+			level级别的日志才会被处理，其他级别不处理
+			<level>Error</level>
+			用于配置符合条件的操作
+			<onMatch>ACCEPT</onMatch>
+			用于配置不符合条件的操作
+			<onMismatch>DENY</onMismatch>
+		</filter>-->
+		
+		<!-- encoder指定编码格式，并根据指定的pattern输出日志信息 -->
+		<encoder charset="UTF-8">
+			<!-- pattern指定日志的输出格式 -->
+			<pattern>%d{HH:mm:ss.SSS}[%-5level][%thread][%logger{20}]-%msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<!-- 下面是将日志输入到指定的文件中 -->
+ 	<!--<appender name="file" class="ch.qos.logback.core.FileAppender">
+		指定的日志文件名
+		<file>logFile.log</file>
+		是否追加到文件末尾，默认true
+		<append>true</append>
+		<encoder>
+			<pattern>%date [%thread] %-5level %logger{35} [%file:%line] - %msg%n</pattern>
+		</encoder>
+	</appender>-->
+
+	<!-- root与logger类似，它表示根logger，只有大于等于level级别的日志才交由appender处理，level默认为DEBUG -->
+	<root level="DEBUG">
+		<appender-ref ref="stdout" />
+		<!--<appender-ref ref="rollingFile" />
+		<appender-ref ref="file" /> -->
+	</root>
+
+	<!-- logger元素用来设置某包或者类的日志输出级别 name:表示某包或类名称 level:表示日志级别，如果没有此属性，那么当前的logger会继承上级的日志级别 -->
+	<logger name="java.sql" level="DEBUG" />
+	<logger name="java.sql.Connection" level="debug" />
+	<logger name="java.sql.Statement" level="debug" />
+	<logger name="java.sql.PreparedStatement" level="debug" />
+	<logger name="java.sql.ResultSet" level="debug" />
+	<logger name="org.springframework" level="WARN" />
+	<logger name="net.sf.ehcache.Cache" level="WARN" />
+</configuration>

@@ -1,0 +1,470 @@
+/* begin Error Pages add by YLM */
+/* 404 page option #1 */
+body {
+  color: #717171;
+  background-color: #FAFAFA !important;
+}
+
+.page-404 {
+  text-align: center;
+}
+
+.page-404 .number {
+  font-family: 'Open Sans', sans-serif;
+  display: inline-block;
+  letter-spacing: -10px;
+  margin-top: 0px;
+  line-height: 128px;
+  font-size: 128px;
+  font-weight: 300;
+  color: #7bbbd6;
+  text-align: right;
+}
+
+.page-404 .details {
+  margin-left: 40px;
+  display: inline-block;
+  padding-top: 0px;
+  text-align: left;
+}
+
+/* 500 page option #1 */
+.page-500 {
+  text-align: center;
+}
+
+.page-500 .number {
+  font-family: 'Open Sans', sans-serif;
+  display: inline-block;
+  letter-spacing: -10px;
+  line-height: 128px;
+  font-size: 128px;
+  font-weight: 300;
+  color: #ec8c8c;
+  text-align: right;
+}
+
+.page-500 .details {
+  margin-left: 40px;
+  display: inline-block;
+  text-align: left;
+}
+
+/* 404 page option #2*/
+.page-404-full-page {
+  overflow-x: hidden;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #fafafa !important;
+}
+
+.page-404-full-page .details input {
+  background-color: #ffffff;
+}
+
+.page-404-full-page .page-404 {
+  margin-top: 100px;
+}
+
+/* 500 page option #2*/
+.page-500-full-page {
+  overflow-x: hidden;
+  padding: 20px;
+  background-color: #fafafa !important;
+}
+
+.page-500-full-page .details input {
+  background-color: #ffffff;
+}
+
+.page-500-full-page .page-500 {
+  margin-top: 100px;
+}
+
+/* 404 page option #3*/
+.page-404-3 {
+  background: black !important;
+}
+
+.page-404-3 .page-inner img {
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  position: absolute;
+}
+
+.page-404-3 .error-404 {
+  color: #fff;
+  text-align: left;
+  padding: 70px 20px 0;
+}
+
+.page-404-3 h1 {
+  color: #fff;
+  font-size: 130px;
+  line-height: 160px;
+}
+
+.page-404-3 h2 {
+  color: #fff;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.page-404-3 p {
+  color: #fff;
+  font-size: 16px;
+}
+
+@media (max-width: 480px) {
+  .page-404 .number,
+  .page-500 .number,
+  .page-404 .details,
+  .page-500 .details {
+    text-align: center;
+    margin-left: 0px;
+  }
+
+  .page-404-full-page .page-404 {
+    margin-top: 30px;
+  }
+
+  .page-404-3 .error-404 {
+    text-align: left;
+    padding-top: 10px;
+  }
+
+  .page-404-3 .page-inner img {
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    position: fixed;
+  }
+}
+/* end Error Pages */
+
+/* begin add by ice */
+.v-middle {
+  vertical-align: middle !important;
+}
+
+/* end add by ice */
+
+/* ==========begin table========== */
+
+/* begin operation buttons add by YLM  */
+.op-btn {
+  padding: 6px 3px;
+  line-height: 1.428571429;
+  vertical-align: middle;
+}
+/* end operation buttons */
+
+/* begin add by lxc */
+
+.table-bottom tbody>tr>td {
+  border-top: none;
+  border-bottom: 1px solid #ddd;
+}
+
+.dataTables_paginate {
+  float: right;
+  margin: 0;
+}
+
+.table-responsive .table {
+  margin-bottom: 10px;
+}
+
+.query-form {
+  display: inline-block;
+  margin-bottom: 5px;
+  /*width: 100%;*/
+}
+
+.query-form .form-group {
+  margin-right: 12px;
+}
+
+.query-form .form-group.last {
+  margin-right: 0;
+}
+
+.query-form .form-group select {
+  width: auto;
+}
+
+.query-form .form-left {
+  width: auto;
+  display: inline-block;
+}
+
+.query-form .form-right {
+  width: auto;
+  display: inline-block;
+  float: right;
+}
+
+.query-form .form-group .input-group-addon {
+  width: auto;
+  display: inline;
+  margin: 0 -4px 0 -4px;
+}
+
+.query-form .form-group .from {
+  border-radius: 3px 0 0 3px;
+}
+
+.query-form .form-group .to {
+  border-radius: 0 3px 3px 0;
+}
+
+.query-form .input-small {
+  width: 100px !important;
+}
+
+.query-form .input-medium {
+  width: 200px !important;
+}
+
+.query-form .form-control {
+  padding: 4px 6px;
+  height: 30px;
+  line-height: 1.5;
+  border-radius: 0 3px 3px 0;
+}
+
+.query-form .control-label {
+  background: #e5e5e5;
+  padding: 6px 10px;
+  margin: 0px -4px 0 0;
+  vertical-align: middle;
+  border-radius: 3px 0 0 3px;
+  font-size: 13px;
+}
+
+.query-form .dropdown-toggle.btn-default {
+  background: #e5e5e5;
+  border-radius: 3px 0 0 3px;
+  margin: 0;
+  font-size: 13px;
+  padding: 5px 10px;
+  line-height: 1.4;
+}
+
+.query-form .dropdown-toggle.btn-default:focus,
+.query-form .dropdown-toggle.btn-default:hover,
+.query-form .dropdown-toggle.btn-default:active {
+  background: #e5e5e5;
+  border-color: #e5e5e5;
+}
+
+.paging-control-label {
+  margin-right: 12px;
+}
+
+.paging-control-label .paging-table-control {
+  margin-top: 1px;
+  border-radius: 3px;
+}
+
+.blank-line {
+  height: 15px;
+}
+
+.table thead>tr>th,
+.table tbody>tr>th,
+.table tfoot>tr>th {
+  background: #F5F5F5;
+}
+
+.table thead>tr>th,
+.table tbody>tr>th,
+.table tfoot>tr>th,
+.table thead>tr>td,
+.table tbody>tr>td,
+.table tfoot>tr>td {
+  padding: 6px 8px;
+  height: 31px;
+  line-height: 18px;
+}
+
+.form-actions {
+  margin: 0px;
+}
+
+.portlet > .portlet-title > .tools {
+  margin-top: 1px;
+  margin-left: -4px;
+  margin-right: 6px;
+  float: left;
+}
+
+/* end add by lxc */
+
+/* ==========end table========== */
+
+/* ==========begin form========== */
+
+/* begin label add by YLM */
+label.control-label {
+  font-weight: 400;
+  color: #444;
+}
+label.form-control-static {
+  font-weight: 400;
+  color: #444;
+}
+/* end label */
+
+/* ==========end form========== */
+
+
+/* ==========start page-content add by LXC============== */
+.navbar-brand {
+  padding: 11px 15px;
+}
+
+.page-content {
+  padding: 0;
+}
+
+.page-content-body > .row {
+  margin: 0;
+}
+
+.page-content-body > .row > div {
+  padding: 0;
+}
+
+.portlet {
+  margin: 15px;
+}
+
+.content-header {
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  border-bottom: 1px solid #cfcfcf;
+  background-color: #fff;
+  border-radius: 0;
+  padding: 10px 10px 2px 15px;
+  height: 50px;
+  margin-top: -15px;
+}
+
+.content-header .title {
+  font-size: 16px;
+  height: 30px;
+  line-height: 30px;
+}
+
+.content-header .form-body {
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+.content-header .form-body .form-left {
+  display: inline-block;
+  width: auto;
+}
+
+.content-header .form-body .form-right {
+  position: absolute;
+  display: inline-block;
+  width: auto;
+  right: 220px;
+}
+
+.content-body {
+  padding: 55px 0 50px 0;
+  border: 0;
+}
+
+.content-body .portlet-body {
+  padding: 0;
+}
+
+.content-footer {
+  position: fixed;
+  bottom: 34px;
+  height: 50px;
+  background: #fff;
+  width: 100%;
+  border-top: 1px solid #cfcfcf;
+}
+
+.content-footer .table-info {
+  display: inline-block;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+.content-footer .page-content-pager {
+  position: fixed;
+  padding-top: 4px;
+  right: 15px;
+}
+
+.content-footer .center-button {
+  height: 50px;
+  line-height: 46px;
+  text-align: center;
+  margin-left: -108px;
+}
+
+.detail-content .content-header {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  border-bottom: 1px solid #cfcfcf;
+  background-color: #fff;
+  border-radius: 0;
+  padding: 10px 10px 2px 15px;
+  height: 50px;
+  margin-top: 0;
+}
+
+.detail-content .content-header .title {
+  padding-top: 3px;
+  font-size: 16px;
+}
+
+.detail-content .portlet {
+  border-radius: 0;
+}
+
+.detail-content .portlet > .portlet-title {
+  background-color: #F5F5F5;
+  border-bottom: 1px solid #e5e5e5;
+  border-radius: 0;
+}
+
+.detail-content .portlet > .portlet-title > .caption {
+  font-size: 13px;
+  padding-left: 5px;
+}
+/* ==========end page-content ============== */
+
+/* ==========start message ============ */
+.success, .success:link, .success:hover, .success:active, .success:visited {
+  color: #3cc051;
+}
+
+.danger, .danger:link, .danger:hover, .danger:active, .danger:visited {
+  color: #ed4e2a;
+}
+
+.info, .info:link, .info:hover, .info:active, .info:visited {
+  color: #57b5e3;
+}
+
+.warning, .warning:link, .warning:hover, .warning:active, .warning:visited {
+  color: #fcb322;
+}
+
+.outer-note {
+  margin: 15px;
+}
+/* ==========end message ============ */

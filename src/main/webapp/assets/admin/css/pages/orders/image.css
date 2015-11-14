@@ -1,0 +1,18 @@
+.thumb-sm {
+  width: 36px;
+  display: inline-block;
+}
+
+.thumb img, .thumb-xs img, .thumb-sm img, .thumb-md img, .thumb-lg img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.list-group.no-borders .list-group-item {
+  border: none;
+}
+
+.panel .list-group-item {
+  border-color: #f0f0f0;
+}

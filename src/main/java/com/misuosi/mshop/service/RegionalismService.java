@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -61,7 +62,22 @@ public class RegionalismService {
 		Integer parentId = regionalismMap.get(regiId);
 		return parentId == null ? 0 : parentId;
 	}
-
+	/**
+	 * 通过地区id字符串获取Regionalism的集合
+	 * @param regiIdStr
+	 * @return
+	 */
+	public List<Regionalism> getRegionalismsByRegiIds(Integer[] regiIds) {
+		List<Regionalism> regionalisms=null;
+    	if(regiIds!=null) {
+    		regionalisms=new ArrayList<Regionalism>();
+    		for(Integer id:regiIds){
+    			Regionalism temp=getRegionalism(id);
+    			regionalisms.add(temp);
+    		}
+    	}
+    	return regionalisms;
+	}
 	public int addRegionalism(Regionalism regionalism) {
 		int rows = regionalismDao.save(regionalism);
 		return rows;

@@ -5,10 +5,14 @@
  */
 package com.misuosi.mshop.entity;
 
+import java.sql.Timestamp;
+import java.util.List;
+
 import com.misuosi.mshop.db.Entity;
 import com.misuosi.mshop.db.annotation.Id;
-
-import java.sql.Timestamp;
+import com.misuosi.mshop.db.annotation.ManyToOne;
+import com.misuosi.mshop.db.annotation.OneToMany;
+import com.misuosi.mshop.db.annotation.OneToOne;
 
 /**
  * Description	 : 实体类 DistributionRegion
@@ -27,7 +31,9 @@ public class DistributionRegion extends Entity {
 	private Integer trexId;
 	private Timestamp direModifyTime;
 	private Timestamp direCreateTime;
-
+	
+	@ManyToOne(table="Regionalism",referenceKey="regiId")
+	private Regionalism regionalism;
 	public Integer getDireId() {
 		return direId;
 	}
@@ -67,6 +73,16 @@ public class DistributionRegion extends Entity {
 	public void setDireCreateTime(Timestamp direCreateTime) {
 		this.direCreateTime = direCreateTime;
 	}
+
+	public Regionalism getRegionalism() {
+		return regionalism;
+	}
+
+	public void setRegionalism(Regionalism regionalism) {
+		this.regionalism = regionalism;
+	}
+
+	
 
 }
 

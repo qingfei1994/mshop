@@ -139,7 +139,7 @@
                 </#list>
 
                 <tr>
-                   <td colspan="4" class="left">总计 : ${(entity["orin_total"])!}( 含运费:${(entity["orin_freight"])!}) <br>已付金额 : ${(entity["orin_total"])!}( 微信支付(微盟支付) : ${(entity["orin_total"])!} )<br><label style="color:red"> 待付金额 : 0.00</label></td>
+                   <td colspan="4" class="left">总计 : ${(entity["orin_total"])!}( 含运费:${(entity["orin_freight"])!}) <br>已付金额 : ${(entity["orin_total"])!}( 微信支付 : ${(entity["orin_total"])!} )<br><label style="color:red"> 待付金额 : 0.00</label></td>
                    <td>合计</td>
                    <td>${index}</td>
                    <td>${(entity["orin_total"])!}</td>
@@ -151,12 +151,12 @@
 	                <li class="m-r">${(shopInformation.shinName)!}</li>
 	                <li class="m-r">电话：<span>${(shopInformation.shinPhone)!}   </span></li>
 	                <li class="m-r">地址：<span>${(shopInformation.shinAddress)!}</span></li>
-	                <li style="float: right;">技术支持：<span>微盟旺铺</span></li>
+	                <li style="float: right;">技术支持：<span></span></li>
                 <#elseif distributorBasic??>
 	                <li class="m-r">${(distributorBasic.dibaName)!}</li>
 	                <li class="m-r">电话：<span>${(distributorBasic.dibaCompanyPhone)!}   </span></li>
 	                <li class="m-r">地址：<span>${(distributorBasic.dibaDetailedAddress)!}</span></li>
-	                <li style="float: right;">技术支持：<span>微盟旺铺</span></li>
+	                <li style="float: right;">技术支持：<span></span></li>
                 </#if>
             </ul>
         </div>

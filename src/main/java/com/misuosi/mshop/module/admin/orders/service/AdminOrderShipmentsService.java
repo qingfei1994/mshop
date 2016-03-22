@@ -93,6 +93,7 @@ public class AdminOrderShipmentsService {
 		StringBuilder sb = new StringBuilder();
 		sb.append("SELECT order_information.*, ");
 		sb.append("shipments_information.shin_remark, ");
+		sb.append("shipments_information.exco_id, ");
 		sb.append("consignees_address.coad_name, consignees_address.coad_phone,consignees_address.coad_detailed_address, ");
 		sb.append("county.regi_name AS coun_regi_name, ");
 		sb.append("city.regi_name AS city_regi_name, ");
@@ -135,14 +136,14 @@ public class AdminOrderShipmentsService {
 		sb.append("goods_order.goor_name, goods_order.goor_code, goods_order.goor_price, goods_order.goor_count ");
 		sb.append("FROM order_information ");
 		sb.append("INNER JOIN goods_order ON goods_order.orin_id = order_information.orin_id ");
-		sb.append("INNER JOIN pay_information ON pay_information.orin_id = order_information.orin_id ");
+		sb.append(" JOIN pay_information ON pay_information.orin_id = order_information.orin_id ");
 		sb.append("INNER JOIN wechat_information ON wechat_information.wein_id = order_information.wein_id ");
 		sb.append("INNER JOIN shipments_information ON shipments_information.orin_id = order_information.orin_id ");
 		sb.append("INNER JOIN express_company ON express_company.exco_id = shipments_information.exco_id ");
 		sb.append("INNER JOIN consignees_address ON consignees_address.coad_id = shipments_information.coad_id ");
-		sb.append("INNER JOIN regionalism AS county ON county.regi_id = consignees_address.regi_id ");
-		sb.append("INNER JOIN regionalism AS city ON city.regi_id = county.regi_parent_id ");
-		sb.append("INNER JOIN regionalism AS province ON province.regi_id = city.regi_parent_id ");
+		sb.append("LEFT JOIN regionalism AS county ON county.regi_id = consignees_address.regi_id ");
+		sb.append("LEFT JOIN regionalism AS city ON city.regi_id = county.regi_parent_id ");
+		sb.append("LEFT JOIN regionalism AS province ON province.regi_id = city.regi_parent_id ");
 		sb.append("ORDER BY pay_information.pain_id DESC ");
 		
 		String sql = sb.toString();

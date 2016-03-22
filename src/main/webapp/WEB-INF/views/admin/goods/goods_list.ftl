@@ -164,7 +164,7 @@ require(["modules/table/init", 'modules/dialog/init',
                                     <td>${entity.goodSort!}</td>
                                     <td>
                                         <a href="javascript:;"  url="admin/goods/${entity.goodId}/edit" title="编辑" class="ajaxify"><i class="op-btn icon-edit"></i></a>
-                                        <a href="javascript:;"  url="admin/goods/${entity.goodId}/detail" title="预览" class="ajaxify"><i class="op-btn icon-search"></i></a>
+                                        <a href="javascript:;"  data-action="admin/goods/${entity.goodId}/detail" title="预览" class="js_multy_dispatch"><i class="op-btn icon-search"></i></a>
                                         <#if entity.goodPutawayType == 1
                                             || (entity.goodPutawayType == 2
                                             && ((entity.goodPutawayTime?? && entity.goodPutawayTime > .now)

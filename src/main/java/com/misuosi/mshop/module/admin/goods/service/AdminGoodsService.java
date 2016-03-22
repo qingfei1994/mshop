@@ -5,16 +5,27 @@
  */
 package com.misuosi.mshop.module.admin.goods.service;
 
-import com.misuosi.mshop.db.dao.Dao;
-import com.misuosi.mshop.entity.*;
-import com.misuosi.mshop.service.GoodsPriceStockService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Service;
+
+import com.misuosi.mshop.db.dao.Dao;
+import com.misuosi.mshop.db.dao.MultiTableDao;
+import com.misuosi.mshop.entity.Goods;
+import com.misuosi.mshop.entity.GoodsClassificationGoods;
+import com.misuosi.mshop.entity.GoodsGoodsSpecificationValue;
+import com.misuosi.mshop.entity.GoodsLabelGoods;
+import com.misuosi.mshop.entity.GoodsPicture;
+import com.misuosi.mshop.entity.GoodsPriceStock;
+import com.misuosi.mshop.entity.GoodsUnificationExpenses;
+import com.misuosi.mshop.service.GoodsPriceStockService;
 
 /**
  * Description		: 商品管理
@@ -251,5 +262,19 @@ public class AdminGoodsService {
             }
         }
     }
+    public Map<String,Object> getGoodsDetail(int goodId) {
+    	StringBuilder sb=new StringBuilder();
+    	 sb.append(" SELECT *");
+         sb.append(" FROM goods");
+         sb.append(" INNER JOIN goods_goods_specification_value");
+         sb.append(" ON goods_goods_specification_value.good_id = goods.good_id");
+         sb.append(" INNER JOIN goods_price_stock");
+         sb.append(" ON goods_price_stock.gpst_id = goods_goods_specification_value.gpst_id");
+         sb.append(" WHERE goods.good_id = ?");
 
+         Map<String, Object> result = ((MultiTableDao) goodsDao).queryForMap(sb.toString(),  goodId);
+         return result;
+    }
+
+    
 }

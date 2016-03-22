@@ -11,6 +11,8 @@ import com.misuosi.mshop.module.admin.goods.service.AdminGoodsService;
 import com.misuosi.mshop.module.common.controller.ErrorController;
 import com.misuosi.mshop.module.common.manager.GoodsClassificationManager;
 import com.misuosi.mshop.module.common.manager.GoodsLabelManager;
+import com.misuosi.mshop.module.common.manager.TransportationExpensesManager;
+import com.misuosi.mshop.pojo.TransportationExpensesResult;
 import com.misuosi.mshop.service.*;
 import com.misuosi.mshop.util.NumberUtils;
 import com.misuosi.mshop.util.StringUtils;
@@ -212,9 +214,21 @@ public class AdminGoodsController {
 
     @RequestMapping(value = "/{goodId}/detail")
     public String detail(@PathVariable("goodId")Integer goodId, Model model) {
-        Goods goods = goodsService.getGoods(goodId);
-        model.addAttribute("goods", goods);
-        return "";
+    	   //获取商品图片
+    	   List<GoodsPicture> goodsPictureList = goodsPictureService.getGoodsPicturesByGoodId(goodId);
+           model.addAttribute("goodsPictureList", goodsPictureList);
+           //获取商品详情
+           Map<String, Object> goodsDetail = adminGoodsService.getGoodsDetail(goodId);
+           Double goodPrice = Double.parseDouble(String.valueOf(goodsDetail.get("good_price")));
+           goodsDetail.put("good_real_price", goodPrice);
+           model.addAttribute("goodsDetail", goodsDetail);
+           //计算快递费用
+           TransportationExpensesResult transportationExpensesResult = TransportationExpensesManager
+                   .calculateTransportationExpenses(goodId, (Integer) goodsDetail.get("gpst_id"), 1, null);
+           model.addAttribute("transportationExpensesResult", transportationExpensesResult);
+        /*Goods goods = goodsService.getGoods(goodId);
+        model.addAttribute("goods", goods);*/
+        return "/admin/goods/goods_detail";
     }
 
     @RequestMapping(value = "/{goodId}/updatePutawayType")

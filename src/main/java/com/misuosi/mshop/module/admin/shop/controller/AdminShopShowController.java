@@ -168,9 +168,12 @@ public class AdminShopShowController {
 	 * @return
 	 */
 	@RequestMapping("/add")
-	public String add(Model model, IndexGroup indexGroup) {
+	public String add(Model model, IndexGroup indexGroup,String[] image) {
 		indexGroup.setIngrCreateTime(DateUtils.getCurrentTime());
 		indexGroup.setIngrModifyTime(DateUtils.getCurrentTime());
+		if (image != null) {
+			indexGroup.setIngrIconUrl(image[0]);
+		}
 		indexGroupService.addIndexGroup(indexGroup);
 		return "redirect:/admin/shop/show/list";
 
@@ -183,7 +186,10 @@ public class AdminShopShowController {
 	 * @return
 	 */
 	@RequestMapping("/edit")
-	public String edit(Model model, IndexGroup indexGroup) {
+	public String edit(Model model, IndexGroup indexGroup,String[] image) {
+		if (image != null) {
+			indexGroup.setIngrIconUrl(image[0]);
+		}
 		indexGroup.setIngrModifyTime(DateUtils.getCurrentTime());
 		indexGroupService.updateIndexGroup(indexGroup);
 		return "redirect:/admin/shop/show/list";

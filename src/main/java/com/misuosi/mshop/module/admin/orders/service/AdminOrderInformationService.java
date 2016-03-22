@@ -70,7 +70,7 @@ public class AdminOrderInformationService {
         sb.append("pay_information.pain_pay_money, pay_information.pain_pay_no, pay_information.pain_pay_time, pay_information.pain_pay_way, pay_information.pain_serial_number ");
         sb.append("FROM order_information ");
         sb.append("INNER JOIN shipments_information ON shipments_information.orin_id = order_information.orin_id ");
-        sb.append("INNER JOIN consignees_address ON consignees_address.coad_id = shipments_information.coad_id ");
+        sb.append("LEFT JOIN consignees_address ON consignees_address.coad_id = shipments_information.coad_id ");
         sb.append("INNER JOIN regionalism AS county ON county.regi_id = consignees_address.regi_id ");
         sb.append("INNER JOIN regionalism AS city ON city.regi_id = county.regi_parent_id ");
         sb.append("INNER JOIN regionalism AS province ON province.regi_id = city.regi_parent_id ");
@@ -100,7 +100,7 @@ public class AdminOrderInformationService {
         sb.append("FROM order_information ");
         sb.append("INNER JOIN shipments_information ON shipments_information.orin_id = order_information.orin_id ");
         sb.append("INNER JOIN goods_order ON goods_order.orin_id = order_information.orin_id ");
-        sb.append("LEFT JOIN pay_information ON pay_information.orin_id = order_information.orin_id ");
+        sb.append("LEFT JOIN pay_information ON pay_information.pain_id = order_information.pain_id ");
         sb.append("WHERE order_information.orin_id = ? ");
 
         String sql = sb.toString();

@@ -26,7 +26,14 @@
                   	<!-- Begin Bootbox -->
                    	<div class="bootbox-body">
                    		<div class="form-horizontal region_box">
-						    <p class="js_selected_cities"></p>
+                   			<p class="js_selected_cities">
+                   			<#if selectedRegionalism??>
+						    
+						   		 <#list selectedRegionalism as regionalism>
+						    			<span data-id="${regionalism.regiId!}">${regionalism.regiName!}</span>
+						    	</#list>
+						    </#if>
+						     </p>
 						    <input type="hidden" class="js_selected_regi_id" value="" >
 						    <div class="pull-left">
 						        <select size="10" class="form-control province js_province">

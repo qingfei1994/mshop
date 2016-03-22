@@ -102,11 +102,11 @@ require(["modules/table/init", 'modules/dialog/init'], function(Table, Dialog){
 														<#if (transportationExpenses.distributionRegions)??>
 															<#assign i=0>
 															<#list transportationExpenses.distributionRegions as distributionRegion>
-																<#if (distributionRegion.regionalisms)??>
-																	<#list distributionRegion.regionalisms as regionalism>
-																		<#if i!=0>,</#if>
-																		${regionalism.regiName}
-																	</#list>
+																<#if (distributionRegion.regionalism)??>
+																	<#--<#list distributionRegion.regionalisms as regionalism>
+																		<#if i!=0>,</#if>-->
+																		${(distributionRegion.regionalism.regiName)!}
+																	<#--</#list>-->
 																</#if>
 																<#assign i=i+1>
 															</#list>

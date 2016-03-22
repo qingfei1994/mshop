@@ -5,6 +5,15 @@
  */
 package com.misuosi.mshop.module.admin.logistics.service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
 import com.misuosi.mshop.db.dao.Dao;
 import com.misuosi.mshop.db.dao.TreeDao;
 import com.misuosi.mshop.entity.DistributionRegion;
@@ -12,12 +21,6 @@ import com.misuosi.mshop.entity.TransportationExpenses;
 import com.misuosi.mshop.entity.TransportationExpensesTemplate;
 import com.misuosi.mshop.module.common.manager.TransportationExpensesTemplateManager;
 import com.misuosi.mshop.util.DateUtils;
-import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Description		:
@@ -51,9 +54,10 @@ public class AdminTransportationExpensesService {
     private Dao<TransportationExpenses> transportationExpensesDao;
     @Resource(name = "distributionRegionDao")
     private Dao<DistributionRegion> distributionRegionDao;
-
+    @Resource(name = "distributionRegionDao")
+    private TreeDao<DistributionRegion> distributionRegionTreeDao;
     @Resource(name = "transportationExpensesDao")
-    private TreeDao<TransportationExpenses> TransportationExpensesTreeDao;
+    private TreeDao<TransportationExpenses> transportationExpensesTreeDao;
 
     /**
      * @param transportationExpensesTemplate
@@ -196,12 +200,12 @@ public class AdminTransportationExpensesService {
         return rows;
     }
 
-    private int deleteTransportationExpensesByTeteId(Integer teteId) {
+    public int deleteTransportationExpensesByTeteId(Integer teteId) {
         StringBuilder sb = new StringBuilder();
         sb.append("DELETE transportation_expenses, distribution_region ");
         sb.append("FROM transportation_expenses ");
         sb.append("LEFT JOIN distribution_region ON distribution_region.trex_id = transportation_expenses.trex_id ");
-        sb.append("WHERE transportation_expenses.trex_id = ?");
+        sb.append("WHERE transportation_expenses.tete_id = ?");
         String sql = sb.toString();
         int rows = transportationExpensesDao.batchDelete(sql, teteId);
         return rows;
@@ -254,9 +258,24 @@ public class AdminTransportationExpensesService {
      */
     public List<TransportationExpenses> getTransportationExpensesByTeteId(
             Integer teteId) {
-        String sql = "SELECT transportation_expenses.* FROM transportation_expenses WHERE transportation_expenses.tete_id = ?";
-        List<TransportationExpenses> trexs = TransportationExpensesTreeDao.queryForTree(sql, teteId);
-        return trexs;
+        StringBuilder sql=new StringBuilder(); 
+        sql.append("SELECT * FROM transportation_expenses expenses " );
+        //sql.append("LEFT JOIN  distribution_region region on expenses.trex_id=region.trex_id "); 
+        		sql.append(" WHERE expenses.tete_id = ?");
+        List<TransportationExpenses> trexs = ((TreeDao)transportationExpensesDao).queryForTree(sql.toString(), teteId);
+       /* for(TransportationExpenses trex:trexs) {
+        	if(trex.getTrexAllRegion()==null) {
+        		StringBuilder temp=new StringBuilder();
+        		temp.append("SELECT regionalism.*,region.* FROM distribution_region region ");
+        		temp.append("INNER JOIN regionalism on regionalism.regi_id=region.regi_id ");
+        		temp.append("WHERE region.trex_id= ?");
+        		List<DistributionRegion> distributionRegions=distributionRegionTreeDao.queryForTree(temp.toString(),trex.getTrexId());
+        		trex.setDistributionRegions(distributionRegions);
+        	}
+        	
+        	
+        }*/
+                return trexs;
     }
 
 

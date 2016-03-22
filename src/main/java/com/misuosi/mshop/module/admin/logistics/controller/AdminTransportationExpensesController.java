@@ -129,6 +129,10 @@ public class AdminTransportationExpensesController {
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String save(TransportationExpensesTemplate transportationExpensesTemplate,
                        Integer[] shippingMethod, TransportationAreaExpensesArray transportationAreaExpensesArray) {
+    	Integer teteId=transportationExpensesTemplate.getTeteId();
+    	if(teteId!=null) {
+    		adminTransportationExpensesService.deleteTransportationExpensesByTeteId(teteId);
+    	}
         List<Map<String, Object>> express = this
                 .convertTransportationExpenses(transportationAreaExpensesArray.getExpress());
         List<Map<String, Object>> ems = this
@@ -170,15 +174,18 @@ public class AdminTransportationExpensesController {
      * @return
      */
     @RequestMapping(value = "/regionalism", method = RequestMethod.GET)
-    public String regionalism(Model model) {
-        List<Regionalism> regionalisms = regionalismService
-                .getRegionalismByRegiGrade(RegionalismConstant.RELI_GRADE_FIRST);
+    public String regionalism(Model model, Integer[] regiIds) {
+    	
+    	List<Regionalism> selectedRegionalism=regionalismService.getRegionalismsByRegiIds(regiIds);
+    	List<Regionalism> regionalisms = regionalismService.
+                getRegionalismByRegiGrade(RegionalismConstant.RELI_GRADE_FIRST);
         List<Regionalism> secondRegionlisms = null;
         if (regionalisms != null && regionalisms.size() > 0) {
             secondRegionlisms = regionalismService
                     .getRegionalismByRegiParentId(regionalisms.get(0)
                             .getRegiId());
         }
+        model.addAttribute("selectedRegionalism",selectedRegionalism);
         model.addAttribute("regionalisms", regionalisms);
         model.addAttribute("secondRegionlisms", secondRegionlisms);
         return "/admin/logistics/transportation_edit_model";

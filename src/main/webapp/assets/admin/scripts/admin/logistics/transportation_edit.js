@@ -23,10 +23,11 @@ define(['jquery', 'template', 'bootbox'], function ($, template, Bootbox) {
 
                 var data = {},
                     _this = $(this);
-
+				//获取运送方式
                 data.delivery = _this.data('delivery'),
                     data.name = _this.data('name'),
                     data.custom = null,
+                    //获取选中的计价方式的data属性
                     data.valuation = pricingManner.data(),
                     data.normal = {
                         delivery: data.delivery,
@@ -59,7 +60,7 @@ define(['jquery', 'template', 'bootbox'], function ($, template, Bootbox) {
                     trLength = $('tbody tr', panel).length,
                     delivery = panel.data('delivery')
                 data = {
-                    area: '<span class="js_no_area"> 未指定地区</span>'
+                    area: '<span class="js_has_area"> 未指定地区</span>'
                 };
 
                 data.normal = {
@@ -119,18 +120,17 @@ define(['jquery', 'template', 'bootbox'], function ($, template, Bootbox) {
     var initCityCheckBox = function () {
 
         //存放选择的地区id
-        var selectedMap = new Array(),
+    	var $selected=$('p.js_selected_cities');
+         selectedMap = new Array(),
             selectNameMap = new Array(),
             index = 1,
             delivery = null,
             tableRow = null;
-
         //省份复选框change事件
         $(document).on('change', '.js_province', function () {
             var $this = $(this),
                 dataId = $this.val(),
                 cities = $('.js_cities');
-
             $.ajax({
                 type: "GET",
                 url: 'admin/logistics/transportation/childRegionalism',
@@ -175,8 +175,24 @@ define(['jquery', 'template', 'bootbox'], function ($, template, Bootbox) {
                 showCities = $('.js_selected_cities');
 
             if (isCheck) {
-                selectedMap.push(dataId);
-                selectNameMap.push(dataName);
+            	
+            		$('.js_selected_cities > span').each(function(){
+            			var id=$(this).data("id");
+            			var name=$(this).html();
+            			if(!selectedMap.in_array(id)){
+            				selectedMap.push(id);
+            			}
+            			if(!selectNameMap.in_array(name)) {
+            				 selectNameMap.push(name);
+            			}
+            			
+            		});
+            	if(!selectedMap.in_array(dataId)) {
+            		selectedMap.push(dataId);
+            	}
+                if(!selectNameMap.in_array(dataName)) {
+                	selectNameMap.push(dataName);
+                }
             } else {
                 selectedMap.splice($.inArray(dataId, selectedMap), 1);
                 selectNameMap.splice($.inArray(dataName, selectNameMap), 1);
@@ -184,13 +200,20 @@ define(['jquery', 'template', 'bootbox'], function ($, template, Bootbox) {
 
             showCities.html(selectNameMap.join(','));
         });
-
         //
         $(document).on('click', '.modal-footer .sure-area', function () {
             var $modal = $('.modal.in'),
-                $jsAreaItem = tableRow.nextAll('.js_area_item:first');
-
+                $jsAreaItem = tableRow.prevAll('span.js_has_area');
+                var url="admin/logistics/transportation/regionalism?regiIds="+selectedMap.join(',');
+				tableRow.attr("url",url);
             $jsAreaItem.html(selectNameMap.join(','));
+            //获取原有的隐藏域
+            $cityItem=$jsAreaItem.children('.city-item');
+            $cityNameItem=$jsAreaItem.children('.city-name-item');
+            //并删除
+            $cityItem.remove();
+            $cityNameItem.remove();
+            //添加新的隐藏域
             $jsAreaItem.append('<input type="hidden" class="city-item" name="' + delivery + '[' + index + '].area" value="' + selectedMap.join(',') + '">');
             $jsAreaItem.append('<input type="hidden" class="city-name-item" value="' + selectNameMap.join(',') + '">');
 

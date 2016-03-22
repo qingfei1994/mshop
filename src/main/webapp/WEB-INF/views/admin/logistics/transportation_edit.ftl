@@ -151,29 +151,30 @@
 						                    	<#if (transportationExpenses.trexAllRegion)?? && transportationExpenses.trexAllRegion==1>
 						                        	<td>全国默认地区<input type="hidden" name="express[${index}].area" value="all"></td>
 						                        <#else>
-						                        	<td>指定地区 
-														<a href="javascript:;" title="编辑运送区域" url="admin/logistics/transportation/regionalism" class="modal-ajax-static js_edit_area m-r-xs" data-name="express[${index}].area"><i class="op-btn icon-edit"></i></a>
-														<a href="javascript:;" title="删除运送区域" data-toggle="removeRow"><i class="icon-trash text-muted"></i></a>
-														<span class="help-block  js_area_item"><span class="js_no_area">
+						                        	<td>
+														<span class="help-block  js_area_item">
 															<#if (transportationExpenses.distributionRegions)??>
+																<span class="js_has_area">
 																<#assign i=0>
 																<#assign regiIdstr="">
 																<#assign regiNamestr="">
 																<#list transportationExpenses.distributionRegions as distributionRegion>
-																	<#if (distributionRegion.regionalisms)??>
-																		<#list distributionRegion.regionalisms as regionalism>
+																	<#if (distributionRegion.regionalism)??>
 																			<#if i!=0>, <#assign regiIdstr=regiIdstr+","> <#assign regiNamestr=regiNamestr+","></#if>
-																			${(regionalism.regiName)!}
-																			<#assign regiIdstr=regiIdstr+(regionalism.regiId)!"">
-																			<#assign regiNamestr=regiNamestr+(regionalism.regiName)!"">
-																		</#list>
+																			${(distributionRegion.regionalism.regiName)!}
+																			<#assign regiIdstr=regiIdstr+(distributionRegion.regionalism.regiId)!"">
+																			<#assign regiNamestr=regiNamestr+(distributionRegion.regionalism.regiName)!"">
 																	</#if>
 																	<#assign i=i+1>
 																</#list>
 																<input type="hidden" class="city-item" name="express[${index}].area" value="${regiIdstr!}">
 																<input type="hidden" class="city-name-item" value="${regiNamestr!}">
+																</span> 
+																
+																<a href="javascript:;" title="编辑运送区域" url="admin/logistics/transportation/regionalism<#if regiIdstr??>?regiIds=${regiIdstr!}</#if>" class="modal-ajax-static js_edit_area m-r-xs" data-name="express[${index}].area" data-delivery="express" data-index="${index}"><i class="op-btn icon-edit"></i></a>
+														<a href="javascript:;" title="删除运送区域" data-toggle="removeRow"><i class="icon-trash text-muted"></i></a>
 															</#if>
-														</span> 
+														
 														</span>
 													</td>
 						                        </#if>
@@ -237,29 +238,30 @@
 						                    	<#if (transportationExpenses.trexAllRegion)?? && transportationExpenses.trexAllRegion==1>
 						                        	<td>全国默认地区<input type="hidden" name="ems[${index}].area" value="all"></td>
 						                        <#else>
-						                        	<td>指定地区 
-														<a href="javascript:;" title="编辑运送区域" url="admin/logistics/transportation/regionalism" class="modal-ajax-static js_edit_area m-r-xs" data-name="ems[${index}].area"><i class="op-btn icon-edit"></i></a>
-														<a href="javascript:;" title="删除运送区域" data-toggle="removeRow"><i class="icon-trash text-muted"></i></a>
-														<span class="help-block  js_area_item"><span class="js_no_area">
+						                        	<td>
+														<span class="help-block  js_area_item">
 															<#if (transportationExpenses.distributionRegions)??>
+																<span class="js_has_area">
 																<#assign i=0>
 																<#assign regiIdstr="">
 																<#assign regiNamestr="">
 																<#list transportationExpenses.distributionRegions as distributionRegion>
-																	<#if (distributionRegion.regionalisms)??>
-																		<#list distributionRegion.regionalisms as regionalism>
+																	<#if (distributionRegion.regionalism)??>
 																			<#if i!=0>, <#assign regiIdstr=regiIdstr+","> <#assign regiNamestr=regiNamestr+","></#if>
-																			${(regionalism.regiName)!}
-																			<#assign regiIdstr=regiIdstr+(regionalism.regiId)!"">
-																			<#assign regiNamestr=regiNamestr+(regionalism.regiName)!"">
-																		</#list>
+																			${(distributionRegion.regionalism.regiName)!}
+																			<#assign regiIdstr=regiIdstr+(distributionRegion.regionalism.regiId)!"">
+																			<#assign regiNamestr=regiNamestr+(distributionRegion.regionalism.regiName)!"">
 																	</#if>
 																	<#assign i=i+1>
 																</#list>
 																<input type="hidden" class="city-item" name="ems[${index}].area" value="${regiIdstr!}">
 																<input type="hidden" class="city-name-item" value="${regiNamestr!}">
+																</span> 
+																
+																<a href="javascript:;" title="编辑运送区域" url="admin/logistics/transportation/regionalism<#if regiIdstr??>?regiIds=${regiIdstr!}</#if>" class="modal-ajax-static js_edit_area m-r-xs" data-name="ems[${index}].area" data-delivery="express" data-index="${index}"><i class="op-btn icon-edit"></i></a>
+														<a href="javascript:;" title="删除运送区域" data-toggle="removeRow"><i class="icon-trash text-muted"></i></a>
 															</#if>
-														</span> 
+														
 														</span>
 													</td>
 						                        </#if>
@@ -323,29 +325,30 @@
 						                    	<#if (transportationExpenses.trexAllRegion)?? && transportationExpenses.trexAllRegion==1>
 						                        	<td>全国默认地区<input type="hidden" name="post[${index}].area" value="all"></td>
 						                        <#else>
-						                        	<td>指定地区 
-														<a href="javascript:;" title="编辑运送区域" url="admin/logistics/transportation/regionalism" class="modal-ajax-static js_edit_area m-r-xs" data-name="post[${index}].area"><i class="op-btn icon-edit"></i></a>
-														<a href="javascript:;" title="删除运送区域" data-toggle="removeRow"><i class="icon-trash text-muted"></i></a>
-														<span class="help-block  js_area_item"><span class="js_no_area">
+						                        	<td>
+														<span class="help-block  js_area_item">
 															<#if (transportationExpenses.distributionRegions)??>
+																<span class="js_has_area">
 																<#assign i=0>
 																<#assign regiIdstr="">
 																<#assign regiNamestr="">
 																<#list transportationExpenses.distributionRegions as distributionRegion>
-																	<#if (distributionRegion.regionalisms)??>
-																		<#list distributionRegion.regionalisms as regionalism>
+																	<#if (distributionRegion.regionalism)??>
 																			<#if i!=0>, <#assign regiIdstr=regiIdstr+","> <#assign regiNamestr=regiNamestr+","></#if>
-																			${(regionalism.regiName)!}
-																			<#assign regiIdstr=regiIdstr+(regionalism.regiId)!"">
-																			<#assign regiNamestr=regiNamestr+(regionalism.regiName)!"">
-																		</#list>
+																			${(distributionRegion.regionalism.regiName)!}
+																			<#assign regiIdstr=regiIdstr+(distributionRegion.regionalism.regiId)!"">
+																			<#assign regiNamestr=regiNamestr+(distributionRegion.regionalism.regiName)!"">
 																	</#if>
 																	<#assign i=i+1>
 																</#list>
 																<input type="hidden" class="city-item" name="post[${index}].area" value="${regiIdstr!}">
 																<input type="hidden" class="city-name-item" value="${regiNamestr!}">
+																</span> 
+																
+																<a href="javascript:;" title="编辑运送区域" url="admin/logistics/transportation/regionalism<#if regiIdstr??>?regiIds=${regiIdstr!}</#if>" class="modal-ajax-static js_edit_area m-r-xs" data-name="post[${index}].area" data-delivery="express" data-index="${index}"><i class="op-btn icon-edit"></i></a>
+																<a href="javascript:;" title="删除运送区域" data-toggle="removeRow"><i class="icon-trash text-muted"></i></a>
 															</#if>
-														</span> 
+														
 														</span>
 													</td>
 						                        </#if>
@@ -419,10 +422,11 @@
 
 <script type="text/html" id="delivery_area_tpl">
 	<tr>
-		<td>指定地区 
+		<td>
+			<span class="help-block  js_area_item">{{#area}}
+			
 			<a href="javascript:;" title="编辑运送区域" url="admin/logistics/transportation/regionalism" class="modal-ajax-static js_edit_area m-r-xs" data-name="{{normal.delivery}}[{{normal.index}}].area" data-delivery="{{normal.delivery}}" data-index="{{normal.index}}"><i class="op-btn icon-edit"></i></a>
 			<a href="javascript:;" title="删除运送区域" data-toggle="removeRow"><i class="icon-trash text-muted"></i></a>
-			<span class="help-block  js_area_item">{{#area}}
 			</span>
 		</td>
 		{{include 'edit_fee_tpl' normal}} 

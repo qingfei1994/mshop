@@ -116,7 +116,15 @@ public class SimpleTreeDao<T extends Entity> implements TreeDao<T> {
                 String refKey = manyToOne.referenceKey();
                 Method keyMethod = entityClass.getDeclaredMethod(
                         "get".concat(StringUtils.firstToUpperCase(refKey)));
-                parseReference(list, fieldName, keyMethod, table, refKey, ids);
+                StringBuffer refIds = new StringBuffer();
+                int j= 0;
+                for (Entity entity : list) {
+                	refIds.append(keyMethod.invoke(entity));
+                    if (j++ < list.size() - 1) {
+                    	refIds.append(",");
+                    }
+                }
+                parseReference(list, fieldName, keyMethod, table, refKey, refIds);
             }
         } catch (NoSuchMethodException e) {
             log.error("SimpleTreeDao.queryForTree throws NoSuchMethodException", e);

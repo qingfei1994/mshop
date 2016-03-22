@@ -1,8 +1,11 @@
 <html lang="cn" class="app fadeInUp animated js no-touch no-android chrome no-firefox no-iemobile no-ie no-ie10 no-ie11 no-ios"><head>
     <meta charset="utf-8">
-    <title>微盟旺铺</title>
+    <title>打印配送单</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!--[if lt IE 9]><script src="/assets/javascripts/ie8/inie8.min.js"></script><![endif]-->
+    <link href="${base}/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="${base}/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="${base}/assets/plugins/uniform/css/uniform.default.min.css" rel="stylesheet" type="text/css"/>
     <script src="${base}/assets/plugins/jquery-1.10.2.min.js"></script>
 
     
@@ -88,19 +91,20 @@
             if (index == 0) {
                 PostUrl();
             }
-
+			//选择了地址以后，向服务器请求
             $("#btnAddress").change(function () {
                 PostUrl();
 
             });
+            //选择了快递公司以后，向服务器请求
             $("#btnExpress").change(function () {
                 PostUrl();
 
             });
             function PostUrl() {
-                var expressId = $('#btnExpress').val();
+                var wateId = $('#btnExpress').val();
                 var addressStr = $('#btnAddress').val();
-                window.location.href = "${base}/common/waybill/printExpress?expressId=" + expressId + "&address=" + addressStr + "&ids=" + ids + "&index=" + index;
+                window.location.href = "${base}/common/waybill/printExpress?wateId=" + wateId + "&address=" + addressStr + "&ids=" + ids + "&index=" + index;
             }
             $("#btnPrint").click(function () {
                 $('#btnFormPrint').hide();
@@ -108,8 +112,8 @@
                 for (var i = 0; i < imgs.length; i++) {
                     imgs[i].style.visibility = "hidden";
                 }
-
-
+				$('.panel').css("border","none");
+				$('#btnPrint').hide();
                 window.print();
             });
 
@@ -137,17 +141,20 @@
                         <input type="hidden" id="indexUrl" name="indexUrl" value="1">
                         <#assign index=0>
                         <input id="ids" type="hidden" name="ids" value="<#list orinIds as orinId><#if index!=0>,</#if>${orinId!}<#assign index=index+1></#list>">
+                       
+                      
                         <div class="form-group" id="btnFormPrint">
-                            <div class="col-sm-3">
+                        	<div class="col-sm-3">
+                        	   <label class="control-label visible-ie8 visible-ie9">打印模板</label>
                                 <select class="form-control " id="btnExpress" data-rule-required="true" aria-required="true">
                                     <option value="">请选择打印模版</option>
-                                    <#list expressCompanies as expressCompany>
-                                    <option value="${(expressCompany.excoId)!}" <#if expressId?? && expressId == expressCompany.excoId>selected</#if> >${(expressCompany.excoName)!}</option>
+                                    <#list availableTemplates as template>
+                                    <option value="${(template.wate_id)!}" <#if wateId?? && wateId == template.wate_id>selected</#if> >${(template.wate_name)!}-${(template.exco_name)!}</option>
                                     </#list>
                                 </select>
                             </div>
-
-                            <div class="col-sm-3">
+                        	<div class="col-sm-3">
+                        	<label class="control-label visible-ie8 visible-ie9">发货地址</label>
                                 <select class="form-control " id="btnAddress" data-rule-required="true" aria-required="true">
                                     <option value="">请选择发货地址</option>
                                     <#list addresses as address>
@@ -163,15 +170,13 @@
                                     </#list>
                                 </select>
                             </div>
-
-
+                            </div>
                             <div class="form-group">
-                                <div class="col-sm-4 col-sm-offset-2">
+                                <div class="col-sm-4">
                                     <button type="button" class="btn btn-primary" id="btnPrint">打印</button>
                                 </div>
                             </div>
-                        </div>
-
+						
                         <div class="line line-dashed line-lg pull-in"></div>
 
                         <div class="form-group">
@@ -180,13 +185,14 @@
                             <div class="col-sm-10 scroll-x">
                                 <div class="courier-container js_container" id="btnContent">
 									${(waybillTemplate.wateContent)!}
-                                    
                                 </div>
                             </div>
+                            
                             </#list>
                             <!-- End -->
                         </div>
-
+                         </div>
+					
                     </form>
                 </div>
             </section>

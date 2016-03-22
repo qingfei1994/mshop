@@ -62,7 +62,41 @@ public class ReportController {
 			put("painPayTime", "支付时间");
 		}
 	};
-	
+	/**
+	 * 订单
+	 */
+	private static final LinkedHashMap<String, String> orderMap = new LinkedHashMap<String, String>(){
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+		{
+			put("orinNo", "订单编号");
+			put("orinStatus", "订单状态");
+			put("orinOrderTime", "下单时间");
+			put("orinSource", "订单来源");
+			put("orinPayStatus", "支付状态");
+			put("orinTotal", "订单总额");
+			put("orinFreight", "订单重量");
+			put("orinPayWay", "订单支付方式");
+			put("weinNickname", "微信昵称");
+			put("weinOpenid", "微信openid");
+			put("painPayTime", "支付时间");
+			put("orinDeliveryMethod", "运送方式");
+			put("excoName", "快递名称");
+			put("coadName", "收件人姓名");
+			put("coadPhone", "收件人电话");
+			put("coadDetailedAddress", "收件人详细地址");
+			put("counRegiName", "收件人国家");
+			put("cityRegiName", "收件人城市");
+			put("provRegiName", "收件人省份");
+			put("shinRemark", "快递备注");
+			put("shinExpressNo", "快递单号");
+			put("orinMark", "订单备注");
+			
+		}
+	};
 	@Autowired
 	private ReportService reportService;
 
@@ -80,9 +114,11 @@ public class ReportController {
 		
 		Timestamp ftime = new Timestamp(fromdate.getTime());
 		Timestamp ttime = new Timestamp(todate.getTime());
+		//从数据库中获取数据
 		List<StatementItem> statementItems = reportService.getStatementItem(suppId, diacId, ftime, ttime);
 		
 		try {
+			//转化为excel
 			ExcelUtil.listToExcel(statementItems, statementMap, "MyStatement", response);
 		} catch (ExcelException e) {
 			// TODO Auto-generated catch block
@@ -113,7 +149,13 @@ public class ReportController {
 		map.put("reportItems", reportItems);
 		
 		String realTemplatePath = request.getSession().getServletContext().getRealPath(OrderConstants.TEMPLATE_PATH);
-//		DocumentUtils.exportExcel(response, map, realTemplatePath, 
-//				"report_excel.ftl", FileNameUtils.getFileName(".xls").toString(), realTemplatePath);
+		/*DocumentUtils.exportExcel(response, map, realTemplatePath, 
+			"report_excel.ftl", FileNameUtils.getFileName(".xls").toString(), realTemplatePath);*/
+		try {
+			ExcelUtil.listToExcel(reportItems, orderMap, "My Order", response);
+		} catch (ExcelException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

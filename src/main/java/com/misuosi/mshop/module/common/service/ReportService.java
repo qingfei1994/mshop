@@ -30,7 +30,7 @@ import com.misuosi.mshop.pojo.StatementItem;
 @Service
 public class ReportService {
 	
-	/**
+	/**导出对账单
 	 * @param suppId
 	 * @param diacId
 	 * @return
@@ -46,10 +46,10 @@ public class ReportService {
 		sb.append("pay_information.pain_pay_no, pay_information.pain_pay_money, pay_information.pain_pay_time, ");
 		sb.append("pay_information.pain_serial_number, pay_information.pain_pay_way ");
 		sb.append("FROM order_information ");
-		sb.append("INNER JOIN pay_information ON pay_information.orin_id = order_information.orin_id ");
+		sb.append("INNER JOIN pay_information ON pay_information.pain_id = order_information.pain_id ");
 		sb.append("WHERE order_information.orin_pay_status = 1 ");
 		sb.append("AND order_information.orin_order_time >= ? AND order_information.orin_order_time <= ? ");
-		if(suppId != null){
+	/*	if(suppId != null){
 			sb.append("AND order_information.supp_id = ? ");
 			String sql = sb.toString();
 			statementItems = statementItemDao.find(sql, fromdate, todate, suppId);
@@ -57,12 +57,12 @@ public class ReportService {
 			sb.append("AND order_information.diac_id = ? ");
 			String sql = sb.toString();
 			statementItems = statementItemDao.find(sql, fromdate, todate, diacId);
-		}
-		
+		}*/
+		statementItems = statementItemDao.find(sb.toString(), fromdate, todate);
 		return statementItems;
 	}
 
-	/**
+	/**导出订单
 	 * @param suppId
 	 * @param diacId
 	 * @param ftime
@@ -88,14 +88,14 @@ public class ReportService {
 		sb.append("province.regi_name AS prov_regi_name ");
 		//sb.append("goods_order.* ");
 		sb.append("FROM order_information ");
-		sb.append("LEFT JOIN pay_information ON pay_information.orin_id = order_information.orin_id ");
+		sb.append("LEFT JOIN pay_information ON pay_information.pain_id = order_information.pain_id ");
 		//sb.append("INNER JOIN goods_order ON goods_order.orin_id = order_information.orin_id ");
 		sb.append("INNER JOIN shipments_information ON shipments_information.orin_id = order_information.orin_id ");
-		sb.append("INNER JOIN express_company ON express_company.exco_id = shipments_information.exco_id ");
-		sb.append("INNER JOIN consignees_address ON consignees_address.coad_id = shipments_information.coad_id ");
-		sb.append("INNER JOIN regionalism AS county ON county.regi_id = consignees_address.regi_id ");
-		sb.append("INNER JOIN regionalism AS city ON city.regi_id = county.regi_parent_id ");
-		sb.append("INNER JOIN regionalism AS province ON province.regi_id = city.regi_parent_id ");
+		sb.append("LEFT JOIN express_company ON express_company.exco_id = shipments_information.exco_id ");//没有发货的没有指定快递公司
+		sb.append("LEFT JOIN consignees_address ON consignees_address.coad_id = shipments_information.coad_id ");
+		sb.append("LEFT JOIN regionalism AS county ON county.regi_id = consignees_address.regi_id ");
+		sb.append("LEFT JOIN regionalism AS city ON city.regi_id = county.regi_parent_id ");
+		sb.append("LEFT JOIN regionalism AS province ON province.regi_id = city.regi_parent_id ");
 		sb.append("INNER JOIN wechat_information ON wechat_information.wein_id = order_information.wein_id ");
 		sb.append("WHERE order_information.orin_order_time >= ? ");
 		sb.append("AND order_information.orin_order_time <= ? ");
@@ -103,7 +103,7 @@ public class ReportService {
 		TreeDao<ReportItem> reportItemDao = DaoFactory.getTreeDao(ReportItem.class);
 		List<ReportItem> reportItems = null;
 				
-		if(suppId != null){
+		/*if(suppId != null){
 			sb.append("AND order_information.supp_id = ? ");
 			sb.append("ORDER BY order_information.orin_id DESC ");
 			String sql = sb.toString();
@@ -113,7 +113,8 @@ public class ReportService {
 			sb.append("ORDER BY order_information.orin_id DESC ");
 			String sql = sb.toString();
 			reportItems = reportItemDao.queryForTree(sql, ftime, ttime, diacId);
-		}
+		}*/
+		reportItems = reportItemDao.queryForTree(sb.toString(), ftime, ttime);
 		return reportItems;
 	}
 

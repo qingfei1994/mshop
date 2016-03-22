@@ -105,7 +105,20 @@ define(["modules/table/table-ajaxify"], function(Ajaxify) {
 
 			url.replace(queryKey, value);
 		});
-
+		//处理时间范围
+		var string =$('.reportrange span').html();
+		if(string!=undefined) {
+			var date=string.split('-');
+			var start=date[0];
+			var name=$('a.reportrange').attr('data-for');
+			var startquerykey='q_ge_d_' + name;
+			url.replace(startquerykey,start);
+			var endquerykey='q_le_d_' + name;
+			var end=date[1];
+			url.replace(endquerykey,end);
+			console.log(start);
+			Util.setLocalStorage(name,string);
+		}
 		url.replace('pageNo', 1); // 查询时重置页码
 		Ajaxify.ajaxTableToPage(url.get());
 	};
@@ -176,6 +189,12 @@ define(["modules/table/table-ajaxify"], function(Ajaxify) {
 		$('.page-content-body .query-form .form-group input[type="checkbox"]').on('change', function() {
 			handleGatherQueryList();
 		});
+		$('.reportrange').on('apply.daterangepicker',function(){
+			
+			
+			handleGatherQueryList();
+        });
+		
 	};
 
 	var handlePath = function() {

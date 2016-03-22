@@ -36,7 +36,7 @@ require(["modules/table/init", 'modules/dialog/init', 'admin/orders/init', 'boot
                         </select>
                     </div>
                     <div class="form-group">
-                        <a class="reportrange btn form-control" data-label="下单时间">
+                       <a class="reportrange btn form-control" data-label="下单时间" data-for="goor_create_time" data-type="date"></a>
                         <#--
 	                        	<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
 	                        	<small>下单时间</small>
@@ -70,14 +70,14 @@ require(["modules/table/init", 'modules/dialog/init', 'admin/orders/init', 'boot
                             <li><a class="pain-pay-no" data-for="pain_pay_no" data-label="支付单号" data-trogger="dropdown-item" href="javascript:;">支付单号</a></li>
                             <li><a class="pain-serial-number" data-for="pain_serial_number" data-label="商家订单号" data-trogger="dropdown-item" href="javascript:;">商家订单号</a></li>
                         </ul>
-                        <input name="goor_name" operator="like" data-type="string" class="form-control input-medium">
-                        <input style="display: none;" name="goor_code" operator="like" data-type="string" class="form-control input-medium">
-                        <input style="display: none;" name="wein_nickname" operator="like" data-type="string" class="form-control input-medium">
-                        <input style="display: none;" name="orin_no" operator="like" data-type="string" class="form-control input-medium">
-                        <input style="display: none;" name="coad_name" operator="like" data-type="string" class="form-control input-medium">
-                        <input style="display: none;" name="coad_phone" operator="like" data-type="string" class="form-control input-medium">
-                        <input style="display: none;" name="pain_pay_no" operator="like" data-type="string" class="form-control input-medium">
-                        <input style="display: none;" name="pain_serial_number" operator="like" data-type="string" class="form-control input-medium">
+                        <input name="goor_name" operator="like" data-type="string" class="form-control input-small">
+                        <input style="display: none;" name="goor_code" operator="like" data-type="string" class="form-control input-small">
+                        <input style="display: none;" name="wein_nickname" operator="like" data-type="string" class="form-control input-small">
+                        <input style="display: none;" name="orin_no" operator="like" data-type="string" class="form-control input-small">
+                        <input style="display: none;" name="coad_name" operator="like" data-type="string" class="form-control input-small">
+                        <input style="display: none;" name="coad_phone" operator="like" data-type="string" class="form-control input-small">
+                        <input style="display: none;" name="pain_pay_no" operator="like" data-type="string" class="form-control input-small">
+                        <input style="display: none;" name="pain_serial_number" operator="like" data-type="string" class="form-control input-small">
                     </div>
                     <div class="form-group last">
                         <button type="button" class="btn btn-info btn-sm reset">清空条件</button>
@@ -134,7 +134,11 @@ require(["modules/table/init", 'modules/dialog/init', 'admin/orders/init', 'boot
 					        <#if index!=entity["orin_id"]>
 							<tr>
                                 <td>
-                                    <input type="checkbox" class="checkboxes" value="${(entity["orin_id"])!}">
+                                	<div class="checker">
+					                        <span>
+					                            <input type="checkbox" class="checkboxes" value="${(entity["orin_id"])!}">
+					                        </span>
+					                    </div>
                                 </td>
                                 <td colspan="7">
                                     <span class="m-r">订单编号：${(entity["orin_no"])!} </span>

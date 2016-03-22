@@ -66,8 +66,17 @@ var Util = function() {
         //生成唯一id
         getUniqueID: function(prefix) {
             return prefix +'_'+ Math.floor(Math.random() * (new Date()).getTime());
-        }
+        },
+      //handle local storage
+    	//add by CHQ
+    	getFromLocalStorage:function(name){
+    		return window.localStorage.getItem(name);
+    	},
+    	 setLocalStorage:function(name,value) {
+    		window.localStorage.setItem(name,value);
+    	}
     };
+    
 }();
 
 
@@ -128,7 +137,6 @@ var URL = function(newUrl) {
         }
         return returnObj;
     };
-
     return {
         get: function() {
             return url;
@@ -138,6 +146,6 @@ var URL = function(newUrl) {
         },
         replace: replace,
         replaceObject: replaceObject,
-        getParam: getParam
+        getParam: getParam,
     };
 };

@@ -31,7 +31,7 @@ require(["modules/table/init", 'modules/dialog/init', 'admin/orders/init', 'boot
                     <div>
                         <#include "../../common/_template/pagination_control.ftl" /><!-- 引入每页显示多少条的模板文件 -->
                         <div class="form-group">
-                            <a class="reportrange btn form-control" data-label="下单时间"></a>
+                            <a class="reportrange btn form-control" data-label="下单时间" data-for="goor_create_time" data-type="date"></a>
                         </div>
                         <div class="form-group">
                             <div class="btn-group">
@@ -76,7 +76,7 @@ require(["modules/table/init", 'modules/dialog/init', 'admin/orders/init', 'boot
                     </div>
 
                     <div style="margin-top:8px;">
-                        <div class="form-group">
+                        <!--<div class="form-group">
                             <label class="control-label">订单来源</label>
                             <select name="orin_source_type" operator="eq" data-type="number" class="form-control">
                                 <option value="">全部订单</option>
@@ -84,7 +84,7 @@ require(["modules/table/init", 'modules/dialog/init', 'admin/orders/init', 'boot
                                 <option value="1">分销商</option>
                                 <option value="2">微客</option>
                             </select>
-                        </div>
+                        </div>-->
                         <div class="form-group">
                             <label class="control-label">订单状态</label>
                             <select name="orin_status" operator="eq" data-type="number" class="form-control">
@@ -174,6 +174,7 @@ require(["modules/table/init", 'modules/dialog/init', 'admin/orders/init', 'boot
 					                <div class="checker">
 					                    <span>
 					                        <input type="checkbox" class="group-checkable" data-set=".table .checkboxes" />
+					                      
 					                    </span>
 					                </div>
 					            </th>
@@ -190,7 +191,12 @@ require(["modules/table/init", 'modules/dialog/init', 'admin/orders/init', 'boot
 					        <#if index != entity["orin_id"]>
 							<tr>
                                 <td>
-                                    <input type="checkbox" value="${(entity["orin_id"])!}">
+                                	 <div class="checker">
+					                        <span>
+					                            <input type="checkbox" class="checkboxes" value="${(entity["orin_id"])!}" />
+					                        </span>
+					                    </div>
+                                    <!--<input type="checkbox" class="checkboxes" value="${(entity["orin_id"])!}">-->
                                 </td>
                                 <td colspan="7"><span class="m-r">订单编号：${(entity["orin_no"])!} </span>
                                     <span class="m-r">下单时间：${(entity["orin_order_time"])!} </span><span class="m-r">订单来源：${(entity["orin_source"])!} </span>

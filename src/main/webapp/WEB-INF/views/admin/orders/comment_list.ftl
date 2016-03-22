@@ -45,7 +45,7 @@ require(["modules/table/init", 'modules/dialog/init', 'admin/orders/init', 'boot
                                condition="or" operator="eq" data-type="number" value="0">
                     </div>
                     <div class="form-group">
-                        <a class="reportrange btn form-control" data-label="评价时间"></a>
+                        <a class="reportrange btn form-control" data-label="评价时间" data-for="goco_comment_time" data-type="date"></a>
                     </div>
                     <div class="form-group btn-group">
                         <a class="btn btn-default btn-sm dropdown-toggle" href="javascript:;" data-toggle="dropdown">
@@ -61,10 +61,11 @@ require(["modules/table/init", 'modules/dialog/init', 'admin/orders/init', 'boot
                         <input style="display: none;" name="wein_nickname" operator="like" data-type="string" class="form-control input-medium">
                         <input style="display: none;" name="orin_no" operator="like" data-type="string" class="form-control input-medium">
                     </div>
-                    <div class="form-group last">
+                    <div class="form-group">
                         <button type="button" class="btn btn-info btn-sm reset">清空条件</button>
                         <button type="button"  class="btn btn-info btn-sm query">查询</button>
                     </div>
+                    
                 </div>
 
                 <div class="form-right">
@@ -95,7 +96,7 @@ require(["modules/table/init", 'modules/dialog/init', 'admin/orders/init', 'boot
 					            <th width="20px">
 					                <div class="checker">
 					                    <span>
-					                        <input type="checkbox" class="group-checkable" data-set=".table .checkboxes" />
+					                        <input type="checkbox" class="group-checkable checkboxes" data-set=".table .checkboxes" />
 					                    </span>
 					                </div>
 					            </th>

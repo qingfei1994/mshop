@@ -5,10 +5,12 @@
  */
 package com.misuosi.mshop.entity;
 
+import java.sql.Timestamp;
+import java.util.List;
+
 import com.misuosi.mshop.db.Entity;
 import com.misuosi.mshop.db.annotation.Id;
-
-import java.sql.Timestamp;
+import com.misuosi.mshop.db.annotation.OneToMany;
 
 /**
  * Description	 : 实体类 TransportationExpenses
@@ -32,8 +34,10 @@ public class TransportationExpenses extends Entity {
 	private Timestamp trexModifyTime;
 	private Timestamp trexCreateTime;
 	private Byte trexAllRegion;
-
-	public Integer getTrexId() {
+	
+	@OneToMany(table = "DistributionRegion", foreignKey = "trexId")
+	private List<DistributionRegion> distributionRegions;
+	public Integer getTrexId() { 
 		return trexId;
 	}
 
@@ -111,6 +115,14 @@ public class TransportationExpenses extends Entity {
 
 	public void setTrexAllRegion(Byte trexAllRegion) {
 		this.trexAllRegion = trexAllRegion;
+	}
+
+	public List<DistributionRegion> getDistributionRegions() {
+		return distributionRegions;
+	}
+
+	public void setDistributionRegions(List<DistributionRegion> distributionRegions) {
+		this.distributionRegions = distributionRegions;
 	}
 
 }

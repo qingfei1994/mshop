@@ -5,6 +5,18 @@
  */
 package com.misuosi.mshop.module.admin.orders.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 import com.misuosi.mshop.common.constants.OrderConstants;
 import com.misuosi.mshop.common.context.RequestContextHolder;
 import com.misuosi.mshop.entity.GoodsOrder;
@@ -13,16 +25,6 @@ import com.misuosi.mshop.module.admin.orders.service.AdminOrderInformationServic
 import com.misuosi.mshop.pojo.OrderPrice;
 import com.misuosi.mshop.service.GoodsOrderService;
 import com.misuosi.mshop.service.OrderInformationService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Description		: 订单管理Controller.
@@ -44,7 +46,7 @@ public class AdminOrderInformationController {
     private OrderInformationService orderInformationService;
     @Autowired
     private GoodsOrderService goodsOrderService;
-
+    @RequiresPermissions("admin:orders:information")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model) {
 

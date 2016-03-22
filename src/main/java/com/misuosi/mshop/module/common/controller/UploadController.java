@@ -58,7 +58,7 @@ public class UploadController {
 	 */
 	@RequestMapping("/image")
 	@ResponseBody
-	public String uploadImage(HttpServletRequest request,
+	public JSONObject uploadImage(HttpServletRequest request,
 			Integer width, Integer height) {
 		JSONObject jsonObject = new JSONObject();
 		String filePath = uploadService.upload(FileUploadConstants.IMAGE_TYPE,
@@ -88,9 +88,45 @@ public class UploadController {
 		} else {
 			jsonObject.put("error", "1");
 		}
+	
+		return jsonObject;
+	}
+	@RequestMapping("/carouselimage")
+	@ResponseBody
+	public String uploadCarouselImage(HttpServletRequest request,
+			Integer width, Integer height) {
+		JSONObject jsonObject = new JSONObject(); 
+		//jsonObject = new HashMap<String,Object>();
+		String filePath = uploadService.upload(FileUploadConstants.IMAGE_TYPE,
+				request);
+		if (!StringUtils.isBlank(filePath)) {
+			jsonObject.put("success", "1");
+			jsonObject.put("src", FileUploadConstants.DOWNLOAD_PATH + filePath.replace("/", "_").replace(".", "_"));
+			jsonObject.put("filePath", filePath);
+
+			// 图片压缩
+			if (width != null && height != null) {
+				String fileName = filePath
+						.substring(filePath.lastIndexOf("/") + 1);
+				/*String fileDir = request
+						.getSession()
+						.getServletContext()
+						.getRealPath(
+								filePath.substring(0, filePath.lastIndexOf("/")));*/
+				String fileDir = FileUploadConstants.ROOT_PATH.concat(filePath.substring(0, filePath.lastIndexOf("/")));
+				CompressPic compressPic = new CompressPic();
+				String result = compressPic.compressPic(fileDir, fileDir,
+						fileName, fileName, width, height, false);
+				if (result.equals(COMPRESS_SUCCESS)) {
+					log.error("图片压缩成功");
+				}
+			}
+		} else {
+			jsonObject.put("error", "1");
+		}
+	
 		return jsonObject.toJSONString();
 	}
-
 	/**
 	 * 一般文件上传
 	 * @param request

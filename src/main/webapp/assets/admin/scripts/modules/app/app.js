@@ -1111,15 +1111,25 @@ var App = function () {
         if (reportrange.length > 0) {
             reportrange.append('<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>')
                 .append('<small>'+label+' </small><span></span> <b class="caret"></b>')
-
-            $('.reportrange span').html(moment().subtract(29, 'days').format('YYYY/MM/DD') + ' - ' + moment().format('YYYY/MM/DD'));
+                var name=reportrange.data('for');
+                var value=Util.getFromLocalStorage(name);
+                console.log(value);
+                var content;
+            	if(value==null){
+            		content=moment().subtract(29, 'days').format('YYYY/MM/DD') + ' - ' + moment().format('YYYY/MM/DD');
+            		  $('.reportrange span').html(moment().subtract(29, 'days').format('YYYY/MM/DD') + ' - ' + moment().format('YYYY/MM/DD'));
+            	} else {
+            	content=value;
+            	}
+            	$('.reportrange span').html(content);
+            	Util.setLocalStorage(name,content);
 
             reportrange.daterangepicker({
                 format: 'MM/DD/YYYY',
                 startDate: moment().subtract(29, 'days'),
                 endDate: moment(),
                 minDate: '01/01/2012',
-                maxDate: '12/31/2015',
+                maxDate: '12/31/2016',
                 dateLimit: { days: 60 },
                 showDropdowns: false,
                 showWeekNumbers: true,
@@ -1127,6 +1137,7 @@ var App = function () {
                 timePickerIncrement: 1,
                 timePicker12Hour: true,
                 ranges: {
+                	'全部':['01/01/2012',moment()],
                     '今天': [moment(), moment()],
                     '昨天': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
                     '最近7天': [moment().subtract(6, 'days'), moment()],
@@ -1155,6 +1166,7 @@ var App = function () {
                 $('.reportrange span').html(start.format('YYYY/MM/DD') + ' - ' + end.format('YYYY/MM/DD'));
             });
         }
+        
     };
     
     //handles dropdown-menu
@@ -1199,7 +1211,7 @@ var App = function () {
 			_input.show();
 		});
 	};
-    
+  
     //* END:CORE HANDLERS *//
 
 

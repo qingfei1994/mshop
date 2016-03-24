@@ -66,7 +66,7 @@ public class WapOrderService {
      *
      * @param shoppingCartItems
      */
-    public void updateShoppingCart(ShoppingCartItem[] shoppingCartItems) {
+    public void updateShoppingCart(ShoppingCartItem[] shoppingCartItems,Integer weinId) {
         if (shoppingCartItems == null || shoppingCartItems.length == 0) {
             return;
         }
@@ -94,6 +94,7 @@ public class WapOrderService {
         }
         sql.deleteCharAt(sql.length() - 1);
         sql.append(")");
+        sql.append(" AND wein_id="+weinId);
 
         List<ShoppingCart> shoppingCarts = shoppingCartDao.find(sql.toString());
         for (ShoppingCart shoppingCart : shoppingCarts) {
@@ -185,7 +186,7 @@ public class WapOrderService {
      */
     public String submitOrder(Integer weinId, Integer coadId, OrderItem orderItem, String remark) {
         Timestamp now = new Timestamp(System.currentTimeMillis());
-        byte refundStatus = 1;
+        byte refundStatus = 0;
         String orinSource = "微信";
 
         TransportationExpensesResult expensesResult = orderItem.getTransportationExpensesResult();

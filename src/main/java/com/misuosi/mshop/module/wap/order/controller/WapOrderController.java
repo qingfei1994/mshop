@@ -67,7 +67,7 @@ public class WapOrderController {
 		Integer weinId = SessionContextHolder.getWechatInformationId();
 
 		// 更新购物车商品数量
-		wapOrderService.updateShoppingCart(shoppingCartItemArray.getShoppingCartItems());
+		wapOrderService.updateShoppingCart(shoppingCartItemArray.getShoppingCartItems(),weinId);
 		// 收货地址
 		ConsigneesAddress consigneesAddress = consigneesAddressService.getDefaultConsigneesAddressByWeinId(weinId);
 
@@ -275,7 +275,18 @@ public class WapOrderController {
 		model.addAttribute("orderInformation", orderInformation);
 		return "/wap/order/evaluation";
 	}
-
+	/**
+	 * 跳转到查看回复页面
+	 * 
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value="/{orinId}/reply", method = RequestMethod.GET)
+	public String getReply(@PathVariable("orinId") Integer orinId, Model model) {
+		OrderInformation orderInformation = orderInformationService.getOrderInformationTree(orinId);
+		model.addAttribute("orderInformation", orderInformation);
+		return "/wap/order/reply";
+	}
 	/**
 	 * 评价商品
 	 *

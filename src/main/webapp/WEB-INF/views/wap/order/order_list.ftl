@@ -122,10 +122,13 @@
 									}
 								}
 							} else if (list[i].orinStatus == 2) {
-								if(list[i].goodOrders && list[i].goodOrders['0'].goodsComment) {
-									status = '<span class="orderStatus">交易完成</span>';
+								if(list[i].goodsOrders && list[i].goodsOrders[0].goodsComment) {
+									
+										status = '<span class="orderStatus">交易完成</span>'+'<a href="wap/order/' + list[i].orinId + '/reply" class="btn fr red-new">查看评价</a>';
+									
+									
 								} else {
-									status = '<span class="orderStatus">交易完成</span>'+
+									status = '<span class="orderStatus">交易完成 未评价</span>'+
 											'<a href="wap/order/' + list[i].orinId + '/evaluation" class="btn fr red-new">去评价</a>';
 								}
 							}

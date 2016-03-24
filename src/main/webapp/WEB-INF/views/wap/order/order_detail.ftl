@@ -107,7 +107,7 @@
 											&& orderInformation.orinPayStatus == 1
 											&& orderInformation.shipmentsInformation.shinShipmentsStatus == 1
 											&& orderInformation.shipmentsInformation.shinSignStatus == 1
-											&& goodsOrder.goorRefundStatus == 1>
+											&& goodsOrder.goorRefundStatus == 0>
                                                 <a href="wap/order/appeal/${goodsOrder.goorId}/apply" class="btn red-1">申请维权</a>
 											</#if>
                                         </div>
@@ -160,14 +160,14 @@
 									<#if orderInformation.orinPayStatus == 1>
                                         <p>支付时间：${(payInformation.painPayTime)!''}</p>
 									</#if>
-									<#if orderInformation.shipmentsInformation.shinShipmentsStatus == 1>
-                                        <p>发货时间：${orderInformation.shipmentsInformation.shinShipmentsTime}</p>
+									<#if orderInformation.shipmentsInformation??&&orderInformation.shipmentsInformation.shinShipmentsStatus == 1>
+                                        <p>发货时间：${(orderInformation.shipmentsInformation.shinShipmentsTime)!}</p>
 									</#if>
-									<#if orderInformation.shipmentsInformation.shinSignStatus == 1>
-										<p>收货时间：${orderInformation.shipmentsInformation.shinSignTime}</p>
+									<#if orderInformation.shipmentsInformation??&&orderInformation.shipmentsInformation.shinSignStatus == 1>
+										<p>收货时间：${(orderInformation.shipmentsInformation.shinSignTime)!}</p>
 									</#if>
-									<#if orderInformation.shipmentsInformation.shinSignStatus == 1>
-										<p>完成时间：${orderInformation.shipmentsInformation.shinSignTime}</p>
+									<#if orderInformation.shipmentsInformation??&&orderInformation.shipmentsInformation.shinSignStatus == 1>
+										<p>完成时间：${(orderInformation.shipmentsInformation.shinSignTime)!}</p>
 									</#if>
 	                            </div>
 	                        </ul>

@@ -108,15 +108,15 @@ define(["modules/table/table-ajaxify"], function(Ajaxify) {
 		//处理时间范围
 		var string =$('.reportrange span').html();
 		if(string!=undefined) {
-			var date=string.split('-');
-			var start=date[0];
+			var date=string.split('- ');
+			var start=date[0]+" 00:00";
 			var name=$('a.reportrange').attr('data-for');
 			var startquerykey='q_ge_d_' + name;
 			url.replace(startquerykey,start);
 			var endquerykey='q_le_d_' + name;
-			var end=date[1];
+			var end=date[1]+" 24:00";
 			url.replace(endquerykey,end);
-			console.log(start);
+			console.log("end="+end);
 			Util.setLocalStorage(name,string);
 		}
 		url.replace('pageNo', 1); // 查询时重置页码
